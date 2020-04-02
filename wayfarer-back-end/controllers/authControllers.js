@@ -50,7 +50,6 @@ const login = (req, res) => {
 
         // Compare passwords
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-            console.log(foundUser.password);
 
             if (err) return res.status(404).json({ status: 404, error: 'Cannot login a user' });
             // If passwords match
