@@ -2,8 +2,8 @@ import React from 'react';
 
 const Home = () => {
     return(
-        <div>
-            Home
+        <div className="home">
+            <img src="./images/hero.jpg" alt="the world is your oyster"></img>
         </div>
     );
 }
