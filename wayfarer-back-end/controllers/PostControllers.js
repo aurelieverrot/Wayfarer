@@ -57,21 +57,6 @@ const update = (req, res) => {
     });
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // !!!!!!!!!!!! NEED TO TEST !!!!!!!!!!!!
 const create = (req, res) => {
     db.Post.create(req.body, (err, newPost) => {
