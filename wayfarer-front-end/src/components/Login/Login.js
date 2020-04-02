@@ -12,8 +12,9 @@ class Login extends React.Component {
     login = () => {
         userApi.login(this.state)
         .then(res => {
-            this.props.loggedIn();
-            this.props.history.push('/profile');
+            // console.log(res.data.user);
+            this.props.loggedIn(res.data.user);
+            // this.props.history.push('/profile');
         });
     }
 
@@ -48,7 +49,7 @@ class Login extends React.Component {
             this.login()
     }
 
-    render() {    
+    render() {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">

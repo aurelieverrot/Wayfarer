@@ -17,14 +17,15 @@ class Profile extends React.Component {
         : this.setState({ formStyle: {display: 'block'} });
     }
 
-    // componentDidMount() {
-    //     UserApi.show()
-    //     .then(res => {
-    //         this.setState({
-    //             user: res
-    //         })
-    //     })
-    // }
+    componentDidMount() {
+        console.log(this.props.currentUser)
+        // UserApi.show()
+        // .then(res => {
+        //     this.setState({
+        //         user: res
+        //     })
+        // })
+    }
 
     updateProfile = user => {
         const isUpdatedProfile = user => {

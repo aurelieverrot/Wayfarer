@@ -40,8 +40,8 @@ class Signup extends React.Component {
         .then(res => {
             console.log(res)
             // call function handler
-            this.props.loggedIn();
-            this.props.history.push('/profile');
+            this.props.loggedIn(res.data.user);
+            // this.props.history.push('/profile');
             // Redirect to profile
         });
     }
