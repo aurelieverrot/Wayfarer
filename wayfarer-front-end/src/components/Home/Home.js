@@ -12,7 +12,7 @@ const Home = () => {
             <h1 class="ui inverted header">
                 Wayfarer
             </h1>
-            <Login/>
+            {/* <Login/> */}
         </div> 
         // <div className="home-content">
         //     {/* <img src="./images/hero.jpg" alt="the world is your oyster"></img> */}
