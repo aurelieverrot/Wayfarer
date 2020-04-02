@@ -11,15 +11,20 @@ class Signup extends React.Component {
         password: '',
         city: ''
     }
-    checkFormsEmpty = () => {
-        Object.keys(this.state.item).map(i => {
-                var myitem = this.state.item[key];
-            if (myitem == ''){
-                // this.refs.[key].parentMarkError();
-                return false
+    validateFields = () => {
+        let keys = []
+        // Puts state keys in keys array
+        Object.keys(this.state).map(key => keys.push(key));
+        let valid = true
+        // check if any states are empty
+        keys.map(key => {
+            if (this.state[key] == '') {
+                // console.log(key);
+                valid = false;
+                
             }
-        });
-        return true;
+        })
+        return valid;
     }
     passwordValid = (password) => {
         let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})")
@@ -29,35 +34,27 @@ class Signup extends React.Component {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
     register = () => {
-        userApi.signup()
+        userApi.signup(this.state)
         .then(res => {
             console.log(res)
             // call function handler
         });
     }
     updateState = (event) => {
-        console.log(event.target)
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     }
     onSubmit = (event) => {
         event.preventDefault();
-        // document.querySelectorAll('.error').forEach((alert) => alert.remove());
-        let formIsValid = true;
-        // console.log(event.target.email.value)
-        // inputs = document.querySelectorAll('input')
-        // console.log(document.querySelectorAll('input'));
-        if (!this.checkFormsEmpty())
+        if (!this.validateFields())
             return
-        // if forms are non-empty
-        // validate password
-        if (!this.passwordValid(this.state.password)) 
-            formIsValid = false;
-        // validate email
-        if (!formIsValid) {
+        // validate password and email
+        // console.log("Checking password");
+        if (!this.passwordValid(this.state.password) || !this.emailValid(this.state.email)) 
             return
-        }
-        else {
+        else 
             this.register()
-        }
     }
     render() {    
         return(
@@ -88,13 +85,6 @@ class Signup extends React.Component {
                 </div>
                 <button className="ui submit button">Sign Up</button>
             </form>
-
-            // <form onSubmit={this.onSubmit}>
-            // <div className="ui icon input" id="search_bar">
-            //     <input type="text" onInput={this.onChange} placeholder="Search..."/>
-            //     <i className="circular search link icon"></i>
-            // </div>
-            // </form>
         );
     }
 }
