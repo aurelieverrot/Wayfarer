@@ -1,5 +1,5 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 // const bcrypt = require('bcryptjs');
 // const session = require('express-session');
 // const MongoStore = require('connect-mongo')(session);
@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const db = require('./models');
+// const db = require('./models');
 const routes = require('./routes'); // Routes Module
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
