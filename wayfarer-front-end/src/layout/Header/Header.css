@@ -1,8 +1,27 @@
-.ui.secondary.inverted.pointing.menu {
-    /* border-width: 2px; */
-    border-color: #ffffff;
+.ui.container.header {
+    background-color: #000000;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
+/* .ui.secondary.inverted.pointing.menu {
+    border-width: 2px;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.ui.secondary.inverted.menu .active.item {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+}
+
+.ui.secondary.inverted.pointing.menu .active.item {
+    border-color: #FFFFFF;
+    color: #ffffff;
+} */
+
 .ui.inverted.button {
-    color: black;
+    color: #ffffff;
+    margin: 0 10px;
 }

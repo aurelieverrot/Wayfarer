@@ -1,52 +1,92 @@
 import React from 'react';
 import './Signup.css';
+import userApi from '../../api/UserApi';
+// import { register } from '../../serviceWorker';
 class Signup extends React.Component {
 
+    state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        city: ''
+    }
+    validateFields = () => {
+        let keys = []
+        // Puts state keys in keys array
+        Object.keys(this.state).map(key => keys.push(key));
+        // console.log(keys);
+        let valid = true
+        keys.map(key => {
+            let field = document.getElementById(key);
+            field.classList.remove('error');
+            if (this.state[key] == '') {
+                valid = false;
+                // add class error to fields
+                field.classList.add('error');
+            }
+        })
+        return valid;
+    }
+    passwordValid = (password) => {
+        let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%\^&\*])(?=.{8,})")
+        return (strongRegex.test(password)) && (password.length >= 8) ? true : false
+    }
+    emailValid = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    }
+    register = () => {
+        userApi.signup(this.state)
+        .then(res => {
+            console.log(res)
+            // call function handler
+        });
+    }
+    updateState = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
     onSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target)
-
+        if (!this.validateFields())
+            return
+        // validate password and email
+        // console.log("Checking password");
+        if (!this.passwordValid(this.state.password) || !this.emailValid(this.state.email)) 
+            return
+        else 
+            this.register()
     }
-    handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
-      }
-    render() {    
+    render() {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">
-                    <div className="field">
+                    <div id="email" className="field">
                         <label>Email</label>
-                        <input type="text" placeholder="Email"/>
+                        <input onInput={this.updateState} name="email" id="email" type="text" placeholder="Email"/>
                     </div>
-                    <div className="field">
+                    <div id="password" className="field">
                         <label>Password</label>
-                        <input type="password"/>
+                        <input onInput={this.updateState} name="password" id="password" type="password"/>
                     </div>
                 </div>
                 <div className="two fields">
-                    <div className="field">
+                    <div id="firstName" className="field">
                         <label>First name</label>
-                        <input type="text" placeholder="First Name"/>
+                        <input onInput={this.updateState} name="firstName" type="text" placeholder="First Name"/>
                     </div>
-                    <div className="field">
+                    <div id="lastName" className="field">
                         <label>Last name</label>
-                        <input type="text" placeholder="Last Name"/>
+                        <input name="lastName" onInput={this.updateState} name="lastName" type="text" placeholder="Last Name"/>
                     </div>
                 </div>
-                <div className="field">
+                <div id="city" className="field">
                     <label>City</label>
-                    <input type="text" placeholder="City"/>
+                    <input onInput={this.updateState} name="city" type="text" placeholder="City"/>
                 </div>
                 <button className="ui submit button">Sign Up</button>
             </form>
-
-            // <form onSubmit={this.onSubmit}>
-            // <div className="ui icon input" id="search_bar">
-            //     <input type="text" onInput={this.onChange} placeholder="Search..."/>
-            //     <i className="circular search link icon"></i>
-            // </div>
-            // </form>
         );
     }
 }
