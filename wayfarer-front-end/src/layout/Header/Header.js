@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom'
-import Home from '../../components/Home/Home';
 
 // const Header = () => {
 class Header extends React.Component {
@@ -23,13 +22,6 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-
-            {/* <Home /> */}
-                {/* <div class="ui text container">
-                    <h1 class="ui inverted header">
-                        Wayfarer
-                    </h1>
-                </div>  */}
             </div>
         </div>
         )

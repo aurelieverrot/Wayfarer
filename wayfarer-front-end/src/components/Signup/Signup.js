@@ -53,8 +53,21 @@ class Signup extends React.Component {
             return
         // validate password and email
         // console.log("Checking password");
-        if (!this.passwordValid(this.state.password) || !this.emailValid(this.state.email)) 
+        if (!this.passwordValid(this.state.password)) {
+            let field = document.getElementById('password');
+            field.classList.add('error');
+            if (!this.emailValid(this.state.email)) {
+                let field = document.getElementById('email');
+                field.classList.add('error');
+                return
+            }
             return
+        }
+        if (!this.emailValid(this.state.email)) {
+            let field = document.getElementById('email');
+            field.classList.add('error');
+            return
+        }
         else 
             this.register()
     }

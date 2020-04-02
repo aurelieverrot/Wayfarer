@@ -30,6 +30,7 @@ class Login extends React.Component {
                 valid = false;
                 // add class error to fields
                 field.classList.add('error');
+                // add label
             }
         })
         return valid;
