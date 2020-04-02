@@ -9,16 +9,19 @@ class App extends React.Component {
     loggedIn : false
   }
   loggedIn = () => {
-    //do stuff
-    console.log("changing app state")
     this.setState({
       loggedIn: true
+    })
+  }
+  logout = () => {
+    this.setState({
+      loggedIn: false
     })
   }
   render() {
     return (
       <div className="App">
-        <Header loggedIn={this.state.loggedIn}/>
+        <Header loggedIn={this.state.loggedIn} logout={this.logout}/>
         {/* { routes } */}
         <Routes loggedIn={this.loggedIn} />
         <Footer />
