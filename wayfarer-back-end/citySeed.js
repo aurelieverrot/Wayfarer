@@ -26,3 +26,19 @@ const cities = [
     comments: []
   }
 ]
+
+const seedDatabase = async () => {
+  try {
+    await db.City.deleteMany({});
+    console.log('Deleted previous cities...');
+    let createdCities = await db.City.create(cities);
+    console.log(`Created ${createdCities.length} cities...`);
+    console.log(createdCities);
+    process.exit();
+  } catch (err) {
+    console.log(err);
+    process.exit(0);
+  }
+}
+
+seedDatabase();
