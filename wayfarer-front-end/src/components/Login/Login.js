@@ -1,5 +1,6 @@
 import React from 'react';
 import userApi from '../../api/UserApi';
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -11,10 +12,9 @@ class Login extends React.Component {
     login = () => {
         userApi.login(this.state)
         .then(res => {
-            // console.log("HERE")
-            console.log(res)
-            this.props.loggedIn();
-            // call function handler
+            // console.log(res.data.user);
+            this.props.loggedIn(res.data.user);
+            // this.props.history.push('/profile');
         });
     }
 
@@ -47,10 +47,9 @@ class Login extends React.Component {
         event.preventDefault();
         if (this.validateFields())
             this.login()
-            // console.log("login");
     }
 
-    render() {    
+    render() {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">
@@ -69,4 +68,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

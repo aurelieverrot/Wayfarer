@@ -1,7 +1,7 @@
 import React from 'react';
 import './Signup.css';
 import userApi from '../../api/UserApi';
-// import { register } from '../../serviceWorker';
+import { withRouter } from 'react-router-dom';
 class Signup extends React.Component {
 
     state = {
@@ -40,6 +40,9 @@ class Signup extends React.Component {
         .then(res => {
             console.log(res)
             // call function handler
+            this.props.loggedIn(res.data.user);
+            // this.props.history.push('/profile');
+            // Redirect to profile
         });
     }
     updateState = (event) => {
@@ -104,4 +107,4 @@ class Signup extends React.Component {
     }
 }
 
-export default Signup;
+export default withRouter(Signup);
