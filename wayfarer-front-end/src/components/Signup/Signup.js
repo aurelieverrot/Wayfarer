@@ -21,7 +21,7 @@ class Signup extends React.Component {
             if (this.state[key] == '') {
                 // console.log(key);
                 valid = false;
-                
+
             }
         })
         return valid;
@@ -60,26 +60,26 @@ class Signup extends React.Component {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">
-                    <div className="field error">
+                    <div name="email" className="field error">
                         <label>Email</label>
                         <input onInput={this.updateState} name="email" id="email" type="text" placeholder="Email"/>
                     </div>
-                    <div className="field">
+                    <div name="password" className="field">
                         <label>Password</label>
                         <input onInput={this.updateState} name="password" id="password" type="password"/>
                     </div>
                 </div>
                 <div className="two fields">
-                    <div className="field">
+                    <div name="firstName" className="field">
                         <label>First name</label>
                         <input onInput={this.updateState} name="firstName" type="text" placeholder="First Name"/>
                     </div>
                     <div className="field">
                         <label>Last name</label>
-                        <input onInput={this.updateState} name="lastName" type="text" placeholder="Last Name"/>
+                        <input name="lastName" onInput={this.updateState} name="lastName" type="text" placeholder="Last Name"/>
                     </div>
                 </div>
-                <div className="field">
+                <div name="city" className="field">
                     <label>City</label>
                     <input onInput={this.updateState} name="city" type="text" placeholder="City"/>
                 </div>
