@@ -24,7 +24,7 @@ class Header extends React.Component {
     console.log("user is loggedin")
         leftLinks= [<><Link to={'/'} className="active item">Home</Link>,
         <Link to={'/about'} className="item">About</Link>, <Link to={'/profile'} className="item">Profile</Link></>]
-        rightLinks = [<><Link onClick={this.props.logout} to={'/home'}className="ui inverted button">Sign Out</Link></>]
+        rightLinks = [<><Link onClick={this.props.logout} to={'/'}className="ui inverted button">Sign Out</Link></>]
     }
         return (
         <div class="pusher">
