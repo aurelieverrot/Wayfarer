@@ -7,9 +7,9 @@ const ctrl = require('../controllers');
 // USER routes-----------------------------------------
 router.get('/users', ctrl.users.index);
 router.get('/users/:id', ctrl.users.show);
-router.get('/users/:id', ctrl.users.update);
-router.get('/users', ctrl.users.create);
-router.get('/users/:id', ctrl.users.update);
+router.put('/users/:id', ctrl.users.update);
+router.post('/users', ctrl.users.create);
+router.delete('/users/:id', ctrl.users.destroy);
 
 // CITY routes-----------------------------------------
 
