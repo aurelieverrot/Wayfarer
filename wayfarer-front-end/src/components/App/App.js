@@ -1,19 +1,27 @@
 import React from 'react';
-import routes from '../../config/routes';
+import Routes from '../../config/routes';
 import './App.css';
 import Header from '../../layout/Header/Header';
 import Footer from '../../layout/Footer/Footer';
 
-function App() {
-  return (
-    
-    <div className="App">
+class App extends React.Component {
+  state = {
 
-      <Header/>
-      { routes }
-      <Footer />
-    </div>
-  );
+  }
+  loggedIn = () => {
+    //do stuff
+    console.log("HERE")
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header/>
+        {/* { routes } */}
+        <Routes loggedIn={this.loggedIn} />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
