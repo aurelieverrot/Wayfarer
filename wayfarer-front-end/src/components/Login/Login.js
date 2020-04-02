@@ -11,8 +11,9 @@ class Login extends React.Component {
     login = () => {
         userApi.login(this.state)
         .then(res => {
-            console.log("HERE")
+            // console.log("HERE")
             console.log(res)
+            this.props.loggedIn();
             // call function handler
         });
     }

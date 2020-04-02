@@ -4,8 +4,28 @@ import { Link } from 'react-router-dom'
 
 // const Header = () => {
 class Header extends React.Component {
-    
     render() {
+    let leftLinks = [];
+    let rightLinks = [];
+    console.log("Rendering header")
+    console.log(this.props)
+    console.log(this.props.loggedIn)
+    if (!this.props.loggedIn) {
+    console.log("user is not loggedin")
+        //if user not loggedin
+        //populate left links with necessary fields
+        leftLinks= [<><Link to={'/'} className="active item">Home</Link>,
+        <Link to={'/about'} className="item">About</Link></>]
+        rightLinks = [<><Link to={'/login'} className="ui inverted button">Log In</Link>
+        <Link to={'/signup'} className="ui inverted button">Sign Up</Link></>]
+    }
+    else {
+        // user is loggedin
+    console.log("user is loggedin")
+        leftLinks= [<><Link to={'/'} className="active item">Home</Link>,
+        <Link to={'/about'} className="item">About</Link>, <Link to={'/profile'} className="item">Profile</Link></>]
+        rightLinks = [<><Link to={'/signout'} className="ui inverted button">Sign Out</Link></>]
+    }
         return (
         <div class="pusher">
                 <div class="ui container">
@@ -13,11 +33,14 @@ class Header extends React.Component {
                         <a class="toc item">
                         <i class="sidebar icon"></i>
                         </a>
-                        <Link to={'/'} className="active item">Home</Link>
-                        <Link to={'/profile'} className="item">Profile</Link>
+                        {/* <Link to={'/'} className="active item">Home</Link>
+                        <Link to={'/profile'} className="item">Profile</Link> */}
+                        {leftLinks}
                         <div class="right item">
-                            <Link to={'/login'} className="ui inverted button">Log In</Link>
-                            <Link to={'/signup'} className="ui inverted button">Sign Up</Link>
+                            {/* <Link to={'/login'} className="ui inverted button">Log In</Link>
+                            <Link to={'/signup'} className="ui inverted button">Sign Up</Link> */}
+                        {rightLinks}
+
                         </div>
                     </div>
                 </div>
