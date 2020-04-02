@@ -7,12 +7,11 @@ class Header extends React.Component {
     
     render() {
         return (
-        <div className="pusher">
-            {/* <div className="ui inverted vertical masthead center aligned segment"> */}
-                <div className="ui container">
-                    <div className="ui large secondary inverted pointing menu">
-                        <a className="toc item">
-                        <i className="sidebar icon"></i>
+        <div class="pusher">
+                <div class="ui container">
+                    <div class="ui large secondary inverted pointing menu">
+                        <a class="toc item">
+                        <i class="sidebar icon"></i>
                         </a>
                         <Link to={'/'} className="active item">Home</Link>
                         <Link to={'/profile'} className="item">Profile</Link>
@@ -22,7 +21,6 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-            {/* </div> */}
         </div>
         )
     }
