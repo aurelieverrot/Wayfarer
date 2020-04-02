@@ -1,8 +1,22 @@
+.ui.container.header {
+    background-color: #000000;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 .ui.secondary.inverted.pointing.menu {
-    /* border-width: 2px; */
+    border-width: 2px;
     border-color: #ffffff;
+    color: #ffffff;
 }
 
 .ui.inverted.button {
-    color: black;
+    color: #ffffff;
+    margin: 0 10px;
+}
+
+.home-nav {
+    color: #ffffff;
+    padding: 10vh;
 }
