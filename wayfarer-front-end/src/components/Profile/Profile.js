@@ -42,7 +42,7 @@ class Profile extends React.Component {
     render(){
             // console.log({users})
         return(
-        <div className="ui segment">
+        <div className="ui container segment">
             <img className="ui centered medium circular image" src="https://i.insider.com/5e4c641b69692c00533ecf1b?width=1100&format=jpeg&auto=webp"/>
             <div className="ui horizontal divider"></div>
             <p>First Name: {this.props.firstName}</p>
