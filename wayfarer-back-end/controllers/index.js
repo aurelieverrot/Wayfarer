@@ -3,4 +3,5 @@ module.exports = {
     auth: require('./authControllers'),
     posts: require('./PostControllers'),
     cities: require('./CityControllers'),
+    comments: require('./CommentControllers'),
 };
