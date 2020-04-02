@@ -1,6 +1,6 @@
 import React from 'react';
 import UserApi from '../../api/UserApi';
-import ProfileForm from './ProfileForm';
+// import ProfileForm from './ProfileForm';
 import './Profile.css';
 import PostContainer from '../../containers/PostContainer';
 
@@ -56,19 +56,19 @@ class Profile extends React.Component {
             <div className="ui form">
                 <div className="fields">
                     <div className="field">
-                    <label>First name: {this.state.user.firstName}</label>
-                    <input type="text" placeholder={this.state.user.firstName}/>
+                    <label>First name:</label>
+                    <input type="text" value={this.state.user.firstName} placeholder={this.state.user.firstName}/>
                     </div>
                     <div className="field">
-                    <label>Last name: {this.state.user.lastName}</label>
-                    <input type="text" placeholder={this.state.user.lastName}/>
+                    <label>Last name:</label>
+                    <input type="text" value={this.state.user.lastName} placeholder={this.state.user.lastName}/>
                     </div>
                     <div className="field">
-                    <label>City: {this.state.user.city}</label>
-                    <input type="text" placeholder={this.state.user.city}/>
+                    <label>City:</label>
+                    <input type="text" value={this.state.user.city} placeholder={this.state.user.city}/>
                     </div>
                 </div>
-                <span>Submit edits to Profile</span>
+                <button>Submit edits to Profile</button>
             </div>
             <p>Join Date: {this.state.user.createdAt}</p>
             {/* <span
