@@ -23,9 +23,12 @@ class Login extends React.Component {
         // console.log(keys);
         let valid = true
         keys.map(key => {
+            let field = document.getElementById(key);
+            field.classList.remove('error');
             if (this.state[key] == '') {
                 valid = false;
-
+                // add class error to fields
+                field.classList.add('error');
             }
         })
         return valid;
@@ -48,11 +51,11 @@ class Login extends React.Component {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">
-                    <div name="email" className="field">
+                    <div id="email" className="field">
                         <label>Email</label>
                         <input onInput={this.updateState} name="email" type="text" placeholder="Email"/>
                         </div>
-                        <div name="password" className="field">
+                        <div id="password" className="field">
                         <label>Password</label>
                         <input onInput={this.updateState} name="password" type="password"/>
                     </div>

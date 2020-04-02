@@ -15,13 +15,15 @@ class Signup extends React.Component {
         let keys = []
         // Puts state keys in keys array
         Object.keys(this.state).map(key => keys.push(key));
+        // console.log(keys);
         let valid = true
-        // check if any states are empty
         keys.map(key => {
+            let field = document.getElementById(key);
+            field.classList.remove('error');
             if (this.state[key] == '') {
-                // console.log(key);
                 valid = false;
-
+                // add class error to fields
+                field.classList.add('error');
             }
         })
         return valid;
@@ -60,26 +62,26 @@ class Signup extends React.Component {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">
-                    <div name="email" className="field error">
+                    <div id="email" className="field">
                         <label>Email</label>
                         <input onInput={this.updateState} name="email" id="email" type="text" placeholder="Email"/>
                     </div>
-                    <div name="password" className="field">
+                    <div id="password" className="field">
                         <label>Password</label>
                         <input onInput={this.updateState} name="password" id="password" type="password"/>
                     </div>
                 </div>
                 <div className="two fields">
-                    <div name="firstName" className="field">
+                    <div id="firstName" className="field">
                         <label>First name</label>
                         <input onInput={this.updateState} name="firstName" type="text" placeholder="First Name"/>
                     </div>
-                    <div className="field">
+                    <div id="lastName" className="field">
                         <label>Last name</label>
                         <input name="lastName" onInput={this.updateState} name="lastName" type="text" placeholder="Last Name"/>
                     </div>
                 </div>
-                <div name="city" className="field">
+                <div id="city" className="field">
                     <label>City</label>
                     <input onInput={this.updateState} name="city" type="text" placeholder="City"/>
                 </div>
