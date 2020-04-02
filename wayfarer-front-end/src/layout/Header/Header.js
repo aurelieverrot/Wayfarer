@@ -8,7 +8,7 @@ class Header extends React.Component {
     render() {
         return (
         <div className="pusher">
-            <div className="ui inverted vertical masthead center aligned segment">
+            {/* <div className="ui inverted vertical masthead center aligned segment"> */}
                 <div className="ui container">
                     <div className="ui large secondary inverted pointing menu">
                         <a className="toc item">
@@ -22,7 +22,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
         )
     }
