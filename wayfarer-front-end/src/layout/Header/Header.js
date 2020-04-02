@@ -8,14 +8,15 @@ class Header extends React.Component {
     
     render() {
         return (
-        <div class="pusher">
-            <div class="ui inverted vertical masthead center aligned segment">
-                <div class="ui container">
-                    <div class="ui large secondary inverted pointing menu">
-                        <a class="toc item">
-                        <i class="sidebar icon"></i>
+        <div className="pusher">
+            <div className="ui inverted vertical masthead center aligned segment">
+                <div className="ui container">
+                    <div className="ui large secondary inverted pointing menu">
+                        <a className="toc item">
+                        <i className="sidebar icon"></i>
                         </a>
                         <Link to={'/'} className="active item">Home</Link>
+                        <Link to={'/profile'} className="item">Profile</Link>
                         <div class="right item">
                             <Link to={'/login'} className="ui inverted button">Log In</Link>
                             <Link to={'/signup'} className="ui inverted button">Sign Up</Link>
@@ -23,7 +24,7 @@ class Header extends React.Component {
                     </div>
                 </div>
 
-            <Home />
+            {/* <Home /> */}
                 {/* <div class="ui text container">
                     <h1 class="ui inverted header">
                         Wayfarer
