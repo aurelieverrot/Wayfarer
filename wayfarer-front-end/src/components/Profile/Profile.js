@@ -2,10 +2,18 @@ import React from 'react';
 import UserApi from '../../api/UserApi';
 import ProfileForm from './ProfileForm';
 import './Profile.css';
+import PostContainer from '../../containers/PostContainer';
 
 class Profile extends React.Component {
     state = {
-        users: [],
+        user: {
+            firstName: 'Seal',
+            lastName: 'Rose',
+            city: 'San Francisco',
+            createdAt: '12-12-20',
+            posts: ['i like to eat bananas'],
+            photo: 'https://www.wwf.org.uk/sites/default/files/styles/hero_s/public/2016-12/Original_WW22791.jpg?h=43f95bd6&itok=KWWNIJuV'
+        },
         formStyle: {
             display: 'none',
         }
@@ -17,14 +25,14 @@ class Profile extends React.Component {
         : this.setState({ formStyle: {display: 'block'} });
     }
 
-    // componentDidMount() {
-    //     UserApi.show()
-    //     .then(res => {
-    //         this.setState({
-    //             user: res
-    //         })
-    //     })
-    // }
+    componentDidMount() {
+        UserApi.show()
+        .then(res => {
+            this.setState({
+                user: res
+            })
+        })
+    }
 
     updateProfile = user => {
         const isUpdatedProfile = user => {
@@ -42,29 +50,44 @@ class Profile extends React.Component {
     render(){
             // console.log({users})
         return(
-        <div className="ui container segment">
-            <img className="ui centered medium circular image" src="https://i.insider.com/5e4c641b69692c00533ecf1b?width=1100&format=jpeg&auto=webp"/>
-            <div className="ui horizontal divider"></div>
-            <p>First Name: {this.props.firstName}</p>
-            <p>Last Name: {this.props.lastname}</p>
-            <p>Join Date: {this.props.createdAt}</p>
-            {/* <p><PostContainer/></p> */}
-            <span
+        <div className="ui container segment" id="container-segment">
+            <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
+            <div className="ui form">
+                <div className="fields">
+                    <div className="field">
+                    <label>First name: {this.state.user.firstName}</label>
+                    <input type="text" placeholder={this.state.user.firstName}/>
+                    </div>
+                    <div className="field">
+                    <label>Last name: {this.state.user.lastName}</label>
+                    <input type="text" placeholder={this.state.user.lastName}/>
+                    </div>
+                    <div className="field">
+                    <label>City: {this.state.user.city}</label>
+                    <input type="text" placeholder={this.state.user.city}/>
+                    </div>
+                </div>
+                <span>Submit edits to Profile</span>
+            </div>
+            <p>Join Date: {this.state.user.createdAt}</p>
+            {/* <span
                 className='edit'
                 onClick={this.toggleBodyForm}>
                     Edit Your Profile
             </span>
             <ProfileForm
-                    user={this.props.user}
+                    user={this.state.user}
                     style={this.state.formStyle}
                     autoFocus={true}
                     buttonName="Update Your Profile"
                     updateProfile={this.updateProfile}
-                    toggleBodyForm={this.toggleBodyForm} />
+                    toggleBodyForm={this.toggleBodyForm} /> */}
+        <PostContainer posts={this.state.user.posts}/>
         </div>
         )
     }
 }
 export default Profile;
+
 
 

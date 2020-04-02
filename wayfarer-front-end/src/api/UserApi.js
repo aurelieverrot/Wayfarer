@@ -20,9 +20,16 @@ const update = (user) => {
     return request;
 }
 
+// user post index
+// needs backend api post route
+// const postIndex = (user) => {
+//     let request = axios.put(endpoint+'api/v1/user/')
+// }
+
 export default {
     login,
     signup,
     show,
-    update
+    update,
+    // postIndex
 }
