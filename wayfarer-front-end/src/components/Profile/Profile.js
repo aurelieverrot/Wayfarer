@@ -26,12 +26,13 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        UserApi.show()
-        .then(res => {
-            this.setState({
-                user: res
-            })
-        })
+        console.log(this.props.currentUser)
+        // UserApi.show()
+        // .then(res => {
+        //     this.setState({
+        //         user: res
+        //     })
+        // })
     }
 
     updateProfile = user => {

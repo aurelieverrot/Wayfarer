@@ -26,7 +26,16 @@ const register = (req, res) => {
                 db.User.create(userInfo, (err, newUser) => {
                     if (err) return res.status(404).json({ status: 404, error: 'Cannot create a new user' });
                     // Return success status
-                    res.status(201).json({status: 201, message: "User is created"})
+
+                    const resUser = {
+                        firstName: newUser.firstName,
+                        lastName: newUser.lastName,
+                        email: newUser.email,
+                        city: newUser.city,
+                        photo: newUser.photo,
+                    };
+                    
+                    res.status(201).json({status: 201, user: resUser, message: 'User Created!' })
                 });
             });
         });

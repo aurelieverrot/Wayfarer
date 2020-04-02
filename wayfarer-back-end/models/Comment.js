@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const CommentSchema = new mongoose.Schema({
     // Has body
-    body: String,
+    body: {
+        type: String,
+        minlength: 1,
+    },
     post: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'

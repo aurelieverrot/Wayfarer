@@ -1,15 +1,29 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect} from 'react-router-dom';
 import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 import Profile from '../components/Profile/Profile';
 
-export default (
-      <Switch>
-        <Route exact path='/' component={ Home } />
-        <Route exact path='/profile' component={ Profile } />
-        <Route path='/login' component={ Login } />
-        <Route path='/signup' component={ Signup }/>
-      </Switch>
-);
+const Routes = (props) => {
+  function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+  console.log(props)
+  console.log(isEmpty(props.user))
+  return (
+    <Switch>
+      <Route exact path='/' component={ Home } />
+      <Route path='/about' component={ Profile } />
+      <Route path='/profile' render={() => (!isEmpty(props.user) ? (<Profile currentUser={props.user}/>) : (<Redirect to="/signup"/>))}/>
+      <Route path='/login' render={() => (isEmpty(props.user) ? (<Login loggedIn={props.loggedIn}/>) : (<Redirect to="/profile"/>))} />
+      <Route path='/signup' render={() => (isEmpty(props.user) ? (<Signup loggedIn={props.loggedIn}/>) : (<Redirect to="/profile"/>))}/>
+    </Switch>
+  );
+}
+
+export default Routes;

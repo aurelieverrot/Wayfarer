@@ -3,8 +3,7 @@ import './Home.css';
 import Login from '../Login/Login';
 // import '../../../public/images';
 
-const Home = () => {
-    
+const Home = (props) => {
     return(
         // if login, remove Wayfarer
         // if signup, remove Wayfarer
