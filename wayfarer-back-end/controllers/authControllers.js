@@ -1,9 +1,9 @@
 const db = require('../models');
 const bcrypt = require('bcryptjs');
 
-const register = () => {
+const register = (req, res) => {
     // Check if Email is taken
-    db.User.findOne({ email: require.body.email }, (err, foundUser) => {
+    db.User.findOne({ email: req.body.email }, (err, foundUser) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot register user.' });
         if (foundUser) return res.status(404).json({ status: 404, error: 'Account already registered.' });
 
@@ -17,6 +17,7 @@ const register = () => {
                 const userInfo = {
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
+                    password: hash,
                     email: req.body.email,
                     city: req.body.city,
                     photo: req.body.photo,
@@ -40,6 +41,8 @@ const login = (req, res) => {
 
         // Compare passwords
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
+            console.log(foundUser.password);
+
             if (err) return res.status(404).json({ status: 404, error: 'Cannot login a user' });
             // If passwords match
             if (isMatch) {
