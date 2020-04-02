@@ -14,6 +14,7 @@ class Header extends React.Component {
                         <i class="sidebar icon"></i>
                         </a>
                         <Link to={'/'} className="active item">Home</Link>
+                        <Link to={'/profile'} className="item">Profile</Link>
                         <div class="right item">
                             <Link to={'/login'} className="ui inverted button">Log In</Link>
                             <Link to={'/signup'} className="ui inverted button">Sign Up</Link>

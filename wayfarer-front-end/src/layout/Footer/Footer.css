@@ -9,3 +9,11 @@ footer {
 /* .footer.segment {
     padding: 5em 0em;
   } */
+
+  /* .footer {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #ffffff;
+    background-color: #000000;
+  } */

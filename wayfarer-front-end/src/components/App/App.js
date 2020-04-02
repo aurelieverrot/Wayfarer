@@ -6,7 +6,9 @@ import Footer from '../../layout/Footer/Footer';
 
 function App() {
   return (
+    
     <div className="App">
+
       <Header/>
       { routes }
       <Footer />
