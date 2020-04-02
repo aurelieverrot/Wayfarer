@@ -3,8 +3,25 @@ import './Header.css';
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+// class Header extends React.Component {
+    // state = {
+    //     hover: false
+    // }
+    
+    // toggleHover() {
+    //     this.setState({hover: !this.state.hover})
+    // }
+    
+    // render() {
+    //    let linkStyle;
+    //    if (this.state.hover) {
+    //      linkStyle = {color: '#ed1212',cursor: 'pointer'}
+    //    } else {
+    //      linkStyle = {color: '#000'}
+    // };
+
     return (
-        <div class="ui inverted vertical masthead center aligned segment">
+        <div className="ui inverted vertical masthead center aligned segment">
         <div className="ui container header">
             <div className="ui large secondary inverted pointing menu">
                 <a className="toc item">
@@ -21,50 +38,17 @@ const Header = () => {
         </div>
         </div>
     )
+// }
 }
-
 
 export default Header;    
 
 
-
-{/* <div class="ui inverted vertical masthead center aligned segment">
-
-<div class="ui container">
-  <div class="ui large secondary inverted pointing menu">
-    <a class="toc item">
-      <i class="sidebar icon"></i>
-    </a>
-    <a class="active item">Home</a>
-    <a class="item">Work</a>
-    <a class="item">Company</a>
-    <a class="item">Careers</a>
-    <div class="right item">
-      <a class="ui inverted button">Log in</a>
-      <a class="ui inverted button">Sign Up</a>
-    </div>
-  </div>
-</div>
-
-<div class="ui text container">
-  <h1 class="ui inverted header">
-    Imagine-a-Company
-  </h1>
-  <h2>Do whatever you want when you want to.</h2>
-  <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
-</div>
-
-</div> */}
-
-{/* <div class="ui vertical inverted sidebar menu left">
-  <a class="active item">Home</a>
-  <a class="item">Work</a>
-  <a class="item">Company</a>
-  <a class="item">Careers</a>
-  <a class="item">Login</a>
-  <a class="item">Signup</a>
-</div>
-
-<a class="active item">Home</a>
- */}
-
+// style={linkStyle} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}
+// Hamburger
+// <div class="ui vertical inverted sidebar menu left uncover visible" style="">
+//     <a class="active item">Home</a>
+//     <a class="item">About</a>
+//     <a class="item">Log In</a>
+//     <a class="item">Sign Up</a>
+// </div>
