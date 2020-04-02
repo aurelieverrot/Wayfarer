@@ -9,7 +9,7 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    db.User.find(req.params.id, (err, foundUser) => {
+    db.User.findById(req.params.id, (err, foundUser) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find a user by id.' });
 
         res.json(foundUser);
