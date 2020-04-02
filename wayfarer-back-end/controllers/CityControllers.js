@@ -37,7 +37,7 @@ const create = (req, res) => {
 
 const destroy = (req, res) => {
   db.City.findByIdAndDelete(req.parmas.id, (err, result) => {
-    if (err) return res.status(404).json({ stauts: 404, error: 'Cannot find city by id and delete'});
+    if (err) return res.status(404).json({ status: 404, error: 'Cannot find city by id and delete'});
 
     res.json(result);
   });

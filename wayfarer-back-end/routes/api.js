@@ -18,17 +18,14 @@ router.delete('/logout', ctrl.auth.logout);
     // We might need this one to check if this user is logged in
 // router.get('/verify', ctrl.auth.verify);
 
-// CITY routes-----------------------------------------
-
+// CITY routes------------------------------------
 router.get('/cities', ctrl.cities.index);
-router.get('/cities/:id', ctrl.cities.show);
-
-
+router.get('/cities/:cityId', ctrl.cities.show);
 //  Shouldn't be used by User
-// ---------------------------------------------
-// router.put('/cities/:id, ctrl.cities.update);
+// -----------------------------------------------
+// router.put('/cities/:cityId, ctrl.cities.update);
 // router.post('/cities/', ctrl.cities.create);
-// router.delete('/cities/:id', ctrl.cities.destroy);
+// router.delete('/cities/:cityId', ctrl.cities.destroy);
 
 
 // POST routes-----------------------------------------
@@ -40,7 +37,13 @@ router.delete('/posts/:postId', ctrl.posts.destroy);
 
 
 
-// COMMENT routes-----------------------------------------
+// COMMENT routes----------------------------------
+router.get('/cities/:cityId/posts/:postId/comments', ctrl.comments.index);
+router.get('/cities/:cityId/posts/:postId/comments/:commentId', ctrl.comments.show);
+router.put('/cities/:cityId/posts/:postId/comments/:commentId', ctrl.comments.update);
+router.post('/cities/:cityId/posts/:postId/comments', ctrl.comments.create);
+router.delete('/cities/:cityId/posts/:postId/comments/commentId', ctrl.comments.destroy);
 
-// ------------------------------------------------------
+
+// ------------------------------------------------
 module.exports = router;
