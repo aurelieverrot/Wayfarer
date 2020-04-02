@@ -25,7 +25,7 @@ class ProfileForm extends React.Component {
         return(
             <div style={this.props.style} className="ui form">
                 <div className="field">
-                <form onSubmit={ this.onSubmit }>
+                {/* <form onSubmit={ this.onSubmit }>
                     <input
                         autoFocus={this.props.autoFocus}
                         onChange={ this.onChange }
@@ -42,7 +42,7 @@ class ProfileForm extends React.Component {
                         type='text'
                         value={this.props.city} />
                     <button type='submit'>Save</button>
-                </form>
+                </form> */}
                 </div>
             </div>
         )
