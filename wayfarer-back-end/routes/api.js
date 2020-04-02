@@ -11,6 +11,13 @@ router.put('/users/:id', ctrl.users.update);
 router.post('/users', ctrl.users.create);
 router.delete('/users/:id', ctrl.users.destroy);
 
+router.post('/register', ctrl.auth.register);
+router.post('/login', ctrl.auth.login);
+router.delete('/logout', ctrl.auth.logout);
+
+    // We might need this one to check if this user is logged in
+// router.get('/verify', ctrl.auth.verify);
+
 // CITY routes-----------------------------------------
 
 // POST routes-----------------------------------------
