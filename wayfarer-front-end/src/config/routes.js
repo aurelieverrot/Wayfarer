@@ -4,14 +4,10 @@ import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 
-const Routes = () => {
-    return (
+export default (
       <Switch>
         <Route exact path='/' component={ Home } />
-        <Route exact path='/login' component={ Login } />
-        <Route exact path='/signup' component={ Signup }/>
+        <Route path='/login' component={ Login } />
+        <Route path='/signup' component={ Signup }/>
       </Switch>
-    )
-  }
-  
-  export default Routes;
+);
