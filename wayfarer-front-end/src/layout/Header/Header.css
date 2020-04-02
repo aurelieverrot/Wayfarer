@@ -1,5 +1,6 @@
-.ui {
-    background-color: rgb(128, 128, 128, 0.7);
+.ui.secondary.inverted.pointing.menu {
+    /* border-width: 2px; */
+    border-color: #ffffff;
 }
 
 a {
