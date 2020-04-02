@@ -65,9 +65,9 @@ const users = [
 
 const seedDatabase = async () => {
   try {
-    await db.User.deleteMany({});
+    await db.UserSchema.deleteMany({});
     console.log('Deleted previous users...');
-    let createdUsers = await db.User.create(users);
+    let createdUsers = await db.UserSchema.create(users);
     console.log(`Created ${createdUsers.length} users...`);
     console.log(createdUsers);
     process.exit();
