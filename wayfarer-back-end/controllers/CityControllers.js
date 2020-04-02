@@ -16,6 +16,9 @@ const show = (req, res) => {
   });
 };
 
+// ---------------------------------------------
+//  Shouldn't be used by User
+// ---------------------------------------------
 const update = (req, res) => {
   db.City.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedCity) => {
     if (err) return res.status(404).json({ status: 404, error: 'Cannot find a city by id and update'});

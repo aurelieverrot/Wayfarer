@@ -20,11 +20,16 @@ router.delete('/logout', ctrl.auth.logout);
 
 // CITY routes-----------------------------------------
 
-// router.get('/cities', ctrl.cities.index);
-// router.get('/cities/:id', ctrl.cities.show);
+router.get('/cities', ctrl.cities.index);
+router.get('/cities/:id', ctrl.cities.show);
+
+
+//  Shouldn't be used by User
+// ---------------------------------------------
 // router.put('/cities/:id, ctrl.cities.update);
 // router.post('/cities/', ctrl.cities.create);
 // router.delete('/cities/:id', ctrl.cities.destroy);
+
 
 // POST routes-----------------------------------------
 
