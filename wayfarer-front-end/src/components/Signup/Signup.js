@@ -58,7 +58,7 @@ class Signup extends React.Component {
         else 
             this.register()
     }
-    render() {    
+    render() {
         return(
             <form onSubmit={this.onSubmit} className="ui form">
                 <div className="two fields">
