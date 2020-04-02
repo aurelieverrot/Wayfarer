@@ -5,7 +5,9 @@ const MongoStore = require('connect-mongo')(session);
 const app = express();
 const PORT = process.env.PORT || 3000;
 const routes = require('./routes'); // Routes Module
+const cors = require('cors');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
