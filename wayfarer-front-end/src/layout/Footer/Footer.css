@@ -1,0 +1,11 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/* .footer.segment {
+    padding: 5em 0em;
+  } */
