@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const User = require('./User');
 const Comment = require('./Comment');
-const City = require('./City');
 
 const PostSchema = new mongoose.Schema({
     title: String,
@@ -13,7 +11,7 @@ const PostSchema = new mongoose.Schema({
     },
     city: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: City
+        ref: 'City'
     }
 }, {timestamps: true});
 
