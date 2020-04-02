@@ -6,16 +6,19 @@ import Footer from '../../layout/Footer/Footer';
 
 class App extends React.Component {
   state = {
-
+    loggedIn : false
   }
   loggedIn = () => {
     //do stuff
-    console.log("HERE")
+    console.log("changing app state")
+    this.setState({
+      loggedIn: true
+    })
   }
   render() {
     return (
       <div className="App">
-        <Header/>
+        <Header loggedIn={this.state.loggedIn}/>
         {/* { routes } */}
         <Routes loggedIn={this.loggedIn} />
         <Footer />

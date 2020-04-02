@@ -9,6 +9,7 @@ const Routes = (props) => {
   return (
     <Switch>
       <Route exact path='/' component={ Home } />
+      <Route path='/about' component={ Profile } />
       <Route path='/profile' component={ Profile } />
       <Route path='/login' render={() => (<Login loggedIn={props.loggedIn}/>)} />
       <Route path='/signup' render={() => (<Signup loggedIn={props.loggedIn}/>)}/>
