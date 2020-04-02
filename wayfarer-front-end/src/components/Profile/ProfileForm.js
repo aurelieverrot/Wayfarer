@@ -3,7 +3,7 @@ import './Profile.css';
 
 class ProfileForm extends React.Component {
     state = {
-        user: '',
+        userProfile: '',
     }
 
     onChange = (event) => {
@@ -14,29 +14,36 @@ class ProfileForm extends React.Component {
 
     onSubmit = (event) => {
         event.preventDefault();
-        const user = this.props.user;
-        user = this.state.user;
-        this.props.updateProfile(user);
-        this.setState({ user: '' });
+        const updProfile = this.props.user;
+              updProfile = this.state.user;
+        this.props.updateProfile(updProfile);
+        this.setState({ userProfile: '' });
         this.props.toggleBodyForm();
     }
 
     render() {
         return(
-            <div style={this.props.style} className="updProfileForm">
+            <div style={this.props.style} className="ui form">
+                <div className="field">
                 <form onSubmit={ this.onSubmit }>
                     <input
                         autoFocus={this.props.autoFocus}
                         onChange={ this.onChange }
                         type='text'
-                        value={this.state.user.firstName} />
+                        value={this.props.firstName} />
                         <input
                         autoFocus={this.props.autoFocus}
                         onChange={ this.onChange }
                         type='text'
-                        value={this.state.user.lastname} />
+                        value={this.props.lastname} />
+                        <input
+                        autoFocus={this.props.autoFocus}
+                        onChange={ this.onChange }
+                        type='text'
+                        value={this.props.city} />
                     <button type='submit'>Save</button>
                 </form>
+                </div>
             </div>
         )
     }
