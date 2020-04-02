@@ -10,3 +10,10 @@ mongoose.connect(DB_URI, {
 
     .then(() => console.log('MongoDB connected successfully'))
     .catch((err) => console.log(err));
+
+module.exports = {
+    User: require('./User'),
+    Post: require('./Post'),
+    Comment: require('./Comment'),
+    City: require('./City'),
+}
