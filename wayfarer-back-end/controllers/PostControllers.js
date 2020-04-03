@@ -55,28 +55,10 @@ const update = (req, res) => {
 // !!!!!!!!!!!! NEED TO TEST !!!!!!!!!!!!
 const create = (req, res) => {
     db.Post.create(req.body, (err, newPost) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot create a post.' });
+      if (err) return res.status(404).json({ status: 404, error: 'Cannot create a new post in the city.' });
 
-        db.City.findById(req.params.cityId, (err, foundCity) => {
-            if (err) return res.status(404).json({ status: 404, error: 'Cannot find a city to create a post.' });
-
-            foundCity.posts.push(newPost);
-            foundCity.save((err, savedCity) => {
-                if (err) return res.status(404).json({ status: 404, error: 'Cannot save a post in the city.' });
-
-                db.User.findById(req.session.currentUser._id, (err, founUser) => {
-                    if (err) return res.status(404).json({ status: 404, error: 'Cannot find a user to create a post.' });
-    
-                    foundUser.posts.push(newPost);
-                    foundUser.save((err, savedUser) => {
-                        if (err) return res.status(404).json({ status: 404, error: 'Cannot save a post in the user.' });
-    
-                        res.json(newPost);
-                    });
-                });
-            });
-        });
-    });
+      res.json(newPost);
+    })
 };
 
 const destroy = (req, res) => {
