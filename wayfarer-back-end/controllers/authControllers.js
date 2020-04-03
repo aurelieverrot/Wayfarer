@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const register = (req, res) => {
     // Check if Email is taken
+    console.log(req.body)
     db.User.findOne({ email: req.body.email }, (err, foundUser) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot register user.' });
         if (foundUser) return res.status(404).json({ status: 404, error: 'Account already registered.' });
@@ -28,6 +29,7 @@ const register = (req, res) => {
                     // Return success status
 
                     const resUser = {
+                        _id: newUser._id,
                         firstName: newUser.firstName,
                         lastName: newUser.lastName,
                         email: newUser.email,
@@ -50,7 +52,6 @@ const login = (req, res) => {
 
         // Compare passwords
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-            console.log(foundUser.password);
 
             if (err) return res.status(404).json({ status: 404, error: 'Cannot login a user' });
             // If passwords match
