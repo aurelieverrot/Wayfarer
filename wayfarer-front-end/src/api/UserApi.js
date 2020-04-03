@@ -11,12 +11,12 @@ const signup = (user) => {
     return axios.post(endpoint+'/api/v1/register',user);
 }
 
-const show = (user) => {
-    return axios.get(endpoint+'/api/v1/users/:id', user);
+const show = (id) => {
+    return axios.get(endpoint+'/api/v1/users/'+id);
 }
 
 const update = (user) => {
-    let request = axios.put(endpoint+'api/v1/user/:id', user);
+    let request = axios.put(endpoint+'/api/v1/users/'+user._id, user);
     return request;
 }
 

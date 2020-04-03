@@ -1,6 +1,5 @@
 const db = require('../models');
 
-
 const index = (req, res) => {
     db.Post.find({}, (err, foundPosts) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find all posts.' });
@@ -16,10 +15,6 @@ const show = (req, res) => {
         res.json(foundPost);
     });
 };
-
-
-
-
 
 // !!!!!!!!!!!! NEED TO TEST !!!!!!!!!!!!
 const update = (req, res) => {
@@ -85,7 +80,6 @@ const create = (req, res) => {
 };
 
 const destroy = (req, res) => {
-    
 };
 
 module.exports = {
