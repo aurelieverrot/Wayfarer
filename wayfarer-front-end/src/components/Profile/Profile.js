@@ -9,19 +9,6 @@ class Profile extends React.Component {
         user: {
             
         },
-<<<<<<< HEAD
-        value: ''
-    }
-
-    // form handling
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-
-    handleSubmit(event) {
-        console.log(this.state.value)
-        event.preventDefault();
-=======
         formStyle: {
             display: 'none',
         },
@@ -48,7 +35,6 @@ class Profile extends React.Component {
         this.state.formStyle.display === 'block'
         ? this.setState({ formStyle: {display: 'none' } })
         : this.setState({ formStyle: {display: 'block'} });
->>>>>>> 4d37b4b7fcee23e4cc983687227fadceaeab50b7
     }
     toggleFormMessage = () => {
         this.state.messageStyle.display === 'block'
@@ -105,21 +91,6 @@ class Profile extends React.Component {
         return(
         <div className="ui container segment" id="container-segment">
             <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
-<<<<<<< HEAD
-            <div className="ui form">
-                <div className="fields" onSubmit={this.handleSubmit}>
-                    <div className="field">
-                    <label>First name:</label>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.state.user.firstName}/>
-                    </div>
-                    <div className="field">
-                    <label>Last name:</label>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.state.user.lastName}/>
-                    </div>
-                    <div className="field">
-                    <label>City:</label>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.state.user.city}/>
-=======
             <form className="ui form" onSubmit={this.submit}>
                 <div className="fields" style={{flexDirection: "column"}}>
                     <div className="field">
@@ -137,7 +108,6 @@ class Profile extends React.Component {
                     <div className="field">
                         <label>joined:</label>
                         <input value={date.toLocaleDateString()}/>
->>>>>>> 4d37b4b7fcee23e4cc983687227fadceaeab50b7
                     </div>
                 </div>
                 <div class="ui success message" style={this.state.messageStyle}>
