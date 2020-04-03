@@ -14,15 +14,17 @@ class Profile extends React.Component {
             posts: ['i like to eat bananas'],
             photo: 'https://www.wwf.org.uk/sites/default/files/styles/hero_s/public/2016-12/Original_WW22791.jpg?h=43f95bd6&itok=KWWNIJuV'
         },
-        formStyle: {
-            display: 'none',
-        }
+        value: ''
     }
 
-    toggleBodyForm = () => {
-        this.state.formStyle.display === 'block'
-        ? this.setState({ formStyle: {display: 'none' } })
-        : this.setState({ formStyle: {display: 'block'} });
+    // form handling
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        console.log(this.state.value)
+        event.preventDefault();
     }
 
     componentDidMount() {
@@ -54,18 +56,18 @@ class Profile extends React.Component {
         <div className="ui container segment" id="container-segment">
             <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
             <div className="ui form">
-                <div className="fields">
+                <div className="fields" onSubmit={this.handleSubmit}>
                     <div className="field">
                     <label>First name:</label>
-                    <input type="text" value={this.state.user.firstName} placeholder={this.state.user.firstName}/>
+                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.state.user.firstName}/>
                     </div>
                     <div className="field">
                     <label>Last name:</label>
-                    <input type="text" value={this.state.user.lastName} placeholder={this.state.user.lastName}/>
+                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.state.user.lastName}/>
                     </div>
                     <div className="field">
                     <label>City:</label>
-                    <input type="text" value={this.state.user.city} placeholder={this.state.user.city}/>
+                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.state.user.city}/>
                     </div>
                 </div>
                 <button>Submit edits to Profile</button>
