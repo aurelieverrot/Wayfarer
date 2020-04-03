@@ -28,6 +28,7 @@ const register = (req, res) => {
                     // Return success status
 
                     const resUser = {
+                        _id: newUser._id,
                         firstName: newUser.firstName,
                         lastName: newUser.lastName,
                         email: newUser.email,
