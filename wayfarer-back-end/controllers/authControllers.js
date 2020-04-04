@@ -1,19 +1,18 @@
-const db = require('../models');
-const bcrypt = require('bcryptjs');
+const db = require("../models");
+const bcrypt = require("bcryptjs");
 
 const register = (req, res) => {
     // Check if Email is taken
-    console.log(req.body)
     db.User.findOne({ email: req.body.email }, (err, foundUser) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot register user.' });
-        if (foundUser) return res.status(404).json({ status: 404, error: 'Account already registered.' });
+        if (err) return res.status(404).json({ status: 404, error: "Cannot register user." });
+        if (foundUser) return res.status(404).json({ status: 404, error: "Account already registered." });
 
         // Generate salt
         bcrypt.genSalt(10, (err, salt) => {
-            if (err) return res.status(404).json({ status: 404, error: 'Cannot register user.' });
+            if (err) return res.status(404).json({ status: 404, error: "Cannot register user." });
             // Hash the password
             bcrypt.hash(req.body.password, salt, (err, hash) => {
-                if (err) return res.status(404).json({ status: 404, error: 'Cannot register user.' });
+                if (err) return res.status(404).json({ status: 404, error: "Cannot register user." });
                 // Create a future user object
                 const userInfo = {
                     firstName: req.body.firstName,
@@ -25,8 +24,7 @@ const register = (req, res) => {
                 };
                 // Create a user
                 db.User.create(userInfo, (err, newUser) => {
-                    if (err) return res.status(404).json({ status: 404, error: 'Cannot create a new user' });
-                    // Return success status
+                    if (err) return res.status(404).json({ status: 404, error: "Cannot create a new user" });
 
                     const resUser = {
                         _id: newUser._id,
@@ -36,8 +34,7 @@ const register = (req, res) => {
                         city: newUser.city,
                         photo: newUser.photo,
                     };
-                    
-                    res.status(201).json({status: 201, user: resUser, message: 'User Created!' })
+                    res.status(201).json({status: 201, user: resUser, message: "User Created!" })
                 });
             });
         });
@@ -47,13 +44,13 @@ const register = (req, res) => {
 const login = (req, res) => {
     // Check if user exists
     db.User.findOne({ email: req.body.email }, (err, foundUser) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot login a user' });
-        if (!foundUser) return res.status(404).json({ status: 404, error: 'Invalid credentials.' });
+        if (err) return res.status(404).json({ status: 404, error: "Cannot login a user" });
+        if (!foundUser) return res.status(404).json({ status: 404, error: "Invalid credentials." });
 
         // Compare passwords
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
 
-            if (err) return res.status(404).json({ status: 404, error: 'Cannot login a user' });
+            if (err) return res.status(404).json({ status: 404, error: "Cannot login a user" });
             // If passwords match
             if (isMatch) {
                 const currentUser = {
@@ -67,11 +64,9 @@ const login = (req, res) => {
 
                 // Save user to a session
                 req.session.currentUser = currentUser;
-                console.log(req.session);
-
                 res.status(201).json({ status: 201, user: currentUser })
             } else {
-                res.status(404).json({ status: 404, error: 'Cannot login. Please, try again.' });
+                res.status(404).json({ status: 404, error: "Cannot login. Please, try again." });
             };
         });
     });
@@ -79,20 +74,17 @@ const login = (req, res) => {
 
 const logout = (req, res) => {
     if (!req.session.currentUser) {
-        return res.status(404).json({ status: 404, error: 'Cannot logout a user' });
+        return res.status(404).json({ status: 404, error: "Cannot logout a user" });
     };
 
     req.session.destroy((err) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot logout a user' });
+        if (err) return res.status(404).json({ status: 404, error: "Cannot logout a user" });
         res.status(201).json({ status: 201, message: "Logged out!" })
     });
 };
 
 const verify = (req, res) => {
-    console.log(req.session);
     if (req.session.currentUser) {
-        console.log("HERE");
-        console.log(req.session.currentUser);
         return res.json({
             status: 200, 
             message: "Authorized",

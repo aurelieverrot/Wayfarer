@@ -1,8 +1,8 @@
-const db = require('../models');
+const db = require("../models");
 
 const index = (req, res) => {
     db.Post.find({}, (err, foundPosts) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot find all posts.' });
+        if (err) return res.status(404).json({ status: 404, error: "Cannot find all posts." });
 
         res.json(foundPosts);
     });
@@ -10,7 +10,7 @@ const index = (req, res) => {
 
 const show = (req, res) => {
     db.Post.findById(req.params.postId, (err, foundPost) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot find a post by id.' });
+        if (err) return res.status(404).json({ status: 404, error: "Cannot find a post by id." });
 
         res.json(foundPost);
     });
@@ -18,7 +18,7 @@ const show = (req, res) => {
 
 const update = (req, res) => {
     db.Post.findByIdAndUpdate(req.params.postId, req.body, { new: true }, (err, updatedPost) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot find a post by id and update' });
+        if (err) return res.status(404).json({ status: 404, error: "Cannot find a post by id and update" });
 
         res.json(updatedPost);
     });
@@ -26,7 +26,7 @@ const update = (req, res) => {
 
 const create = (req, res) => {
     db.Post.create(req.body, (err, newPost) => {
-      if (err) return res.status(404).json({ status: 404, error: 'Cannot create a new post in the city.' });
+      if (err) return res.status(404).json({ status: 404, error: "Cannot create a new post in the city." });
 
       res.json(newPost);
     })
@@ -34,7 +34,7 @@ const create = (req, res) => {
 
 const destroy = (req, res) => {
     db.Post.findByIdAndDelete(req.parmas.postId, (err, result) => {
-      if (err) return res.status(404).json({ status: 404, error: 'Cannot find post by id and delete'});
+      if (err) return res.status(404).json({ status: 404, error: "Cannot find post by id and delete"});
   
       res.json(result);
     });
