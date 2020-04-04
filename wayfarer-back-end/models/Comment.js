@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const CommentSchema = new mongoose.Schema({
     // Has body
@@ -8,16 +8,16 @@ const CommentSchema = new mongoose.Schema({
     },
     post: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Post'
+        ref: "Post"
     },
     city: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'City'
+        ref: "City"
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: "User"
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('Comment', CommentSchema);
+module.exports = mongoose.model("Comment", CommentSchema);
