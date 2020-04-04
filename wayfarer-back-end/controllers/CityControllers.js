@@ -1,16 +1,16 @@
-const db = require('../models');
+const db = require("../models");
 
 const index = (req, res) => {
   db.City.find({}, (err, foundCities) => {
-    if (err) return res.status(404).json({ status: 404, error: 'Cannot find all cities'});
+    if (err) return res.status(404).json({ status: 404, error: "Cannot find all cities"});
     
     res.json(foundCities);
   });
 };
 
 const show = (req, res) => {
-  db.City.findById(req.params.id, (err, foundCity) => {
-    if (err) return res.status(404).json({ status: 404, error: 'Cannot find a city by id.'});
+  db.City.findById(req.params.cityId, (err, foundCity) => {
+    if (err) return res.status(404).json({ status: 404, error: "Cannot find a city by id."});
 
     res.json(foundCity);
   });
@@ -20,8 +20,8 @@ const show = (req, res) => {
 //  Shouldn't be used by User
 // ---------------------------------------------
 const update = (req, res) => {
-  db.City.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedCity) => {
-    if (err) return res.status(404).json({ status: 404, error: 'Cannot find a city by id and update'});
+  db.City.findByIdAndUpdate(req.params.cityId, req.body, { new: true }, (err, updatedCity) => {
+    if (err) return res.status(404).json({ status: 404, error: "Cannot find a city by id and update"});
 
     res.json(updatedCity);
   });
@@ -29,15 +29,15 @@ const update = (req, res) => {
 
 const create = (req, res) => {
   db.City.create(req.body, (err, createdCity) => {
-    if (err) return res.status(404).json({ status: 404, error: 'Cannot create a new city'});
+    if (err) return res.status(404).json({ status: 404, error: "Cannot create a new city"});
 
     res.json(createdCity);
   });
 };
 
 const destroy = (req, res) => {
-  db.City.findByIdAndDelete(req.parmas.id, (err, result) => {
-    if (err) return res.status(404).json({ status: 404, error: 'Cannot find city by id and delete'});
+  db.City.findByIdAndDelete(req.parmas.cityId, (err, result) => {
+    if (err) return res.status(404).json({ status: 404, error: "Cannot find city by id and delete"});
 
     res.json(result);
   });

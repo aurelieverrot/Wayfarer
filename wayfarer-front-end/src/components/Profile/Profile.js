@@ -58,9 +58,10 @@ class Profile extends React.Component {
 
         UserApi.show(this.props.currentUser._id)
         .then(res => {
-            this.setState({
-                user: res.data
-            })
+            console.log(res);
+            // this.setState({
+            //     user: res.data
+            // })
         })
     }
 
@@ -128,7 +129,8 @@ class Profile extends React.Component {
                     buttonName="Update Your Profile"
                     updateProfile={this.updateProfile}
                     toggleBodyForm={this.toggleBodyForm} /> */}
-        <PostContainer posts={this.state.user.posts}/>
+
+        <PostContainer id={this.state.user._id}/>
         </div>
         )
     }

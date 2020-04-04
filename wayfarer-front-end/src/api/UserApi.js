@@ -1,6 +1,6 @@
 // Something
 import axios from 'axios';
-
+axios.defaults.withCredentials = true;
 const endpoint = "http://localhost:4000"
 
 const login = (user) => {
@@ -9,6 +9,15 @@ const login = (user) => {
 
 const signup = (user) => {
     return axios.post(endpoint+'/api/v1/register',user);
+}
+
+const logout = () => {
+// router.delete('/logout', ctrl.auth.logout);
+    return axios.delete(endpoint+'/api/v1/logout')
+}
+
+const verify = () => {
+    return axios.get(endpoint+'/api/v1/verify');
 }
 
 const show = (id) => {
@@ -22,14 +31,17 @@ const update = (user) => {
 
 // user post index
 // needs backend api post route
-// const postIndex = (user) => {
-//     let request = axios.put(endpoint+'api/v1/user/')
-// }
+const postIndex = () => {
+    let request = axios.get(endpoint+'/api/v1/posts/')
+    return request;
+}
 
 export default {
     login,
     signup,
+    logout,
+    verify,
     show,
     update,
-    // postIndex
+    postIndex
 }
