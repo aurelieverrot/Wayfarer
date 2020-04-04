@@ -31,8 +31,8 @@ router.get('/cities/:cityId', ctrl.cities.show);
 // POST routes-----------------------------------------
 router.get('/posts', ctrl.posts.index);
 router.get('/posts/:postId', ctrl.posts.show);
-router.put('/cities/:cityId/posts/:postId', ctrl.posts.update); // <------------------------
-router.post('/cities/:cityId/posts/', ctrl.posts.create);
+router.put('/posts/:postId', ctrl.posts.update); // <------------------------
+router.post('/posts/', ctrl.posts.create);
 router.delete('/posts/:postId', ctrl.posts.destroy);
 
 
