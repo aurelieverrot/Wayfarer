@@ -9,15 +9,15 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-  db.Comment.findById(req.params.id, (err, foundComment) => {
-    if (err) return res.status(404).json({ status: 404, error: 'Cannot find comment by id'});
+  db.Comment.findById(req.params.commentId, (err, foundComment) => {
+    if (err) return res.status(404).json({ status: 404, error: 'Cannot find comment bycommentId'});
 
     res.json(foundComment);
   });
 };
 
 const update = (req, res) => {
-  db.Comment.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedComment) => {
+  db.Comment.findByIdAndUpdate(req.params.commentId, req.body, { new: true }, (err, updatedComment) => {
     if (err) return res.status(404),json({ status: 404, error: 'Cannot find comment by id and update'});
 
     res.json(updatedComment);
@@ -33,7 +33,7 @@ const create = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  db.Comment.findByIdAndDelete(req.params.id, (err, result) => {
+  db.Comment.findByIdAndDelete(req.params.commentId, (err, result) => {
     if (err) return res.status(404).json({ status: 404, error: 'Cannot find post by id and delete'});
 
     res.json(result);
