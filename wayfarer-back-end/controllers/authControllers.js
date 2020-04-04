@@ -67,6 +67,8 @@ const login = (req, res) => {
 
                 // Save user to a session
                 req.session.currentUser = currentUser;
+                console.log(req.session);
+
                 res.status(201).json({ status: 201, user: currentUser })
             } else {
                 res.status(404).json({ status: 404, error: 'Cannot login. Please, try again.' });
@@ -86,19 +88,22 @@ const logout = (req, res) => {
     });
 };
 
-// const verify = (req, res) => {
-//     if (req.session.currentUser) {
-//         return res.json({
-//             status: 200, 
-//             message: "Authorized",
-//             currentUser: req.session.currentUser
-//         });
-//     };
-// };
+const verify = (req, res) => {
+    console.log(req.session);
+    if (req.session.currentUser) {
+        console.log("HERE");
+        console.log(req.session.currentUser);
+        return res.json({
+            status: 200, 
+            message: "Authorized",
+            currentUser: req.session.currentUser
+        });
+    };
+};
 
 module.exports = {
     register,
     login,
     logout,
-    // verify,
+    verify,
 };
