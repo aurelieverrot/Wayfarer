@@ -7,7 +7,14 @@ const PORT = process.env.PORT || 4000;
 const routes = require('./routes'); // Routes Module
 const cors = require('cors');
 
-app.use(cors());
+const corsOptions = {
+    origin: ['http://localhost:3000'],
+    methods: "GET, POST, PUT, DELETE", // only these methods are allowed
+    credentials: true, // allows session cookies to be sent back and forth between client and server
+    optionsSuccessStatus: 200 // only for legacy browsers as they fail if you send 204 back  
+}
+
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

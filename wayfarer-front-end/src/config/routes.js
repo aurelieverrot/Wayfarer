@@ -20,9 +20,22 @@ const Routes = (props) => {
     <Switch>
       <Route exact path='/' component={ Home } />
       <Route path='/about' component={ About } />
-      <Route path='/profile' render={() => (!isEmpty(props.user) ? (<Profile currentUser={props.user} loggedIn={props.loggedIn}/>) : (<Redirect to="/signup"/>))}/>
-      <Route path='/login' render={() => (isEmpty(props.user) ? (<Login loggedIn={props.loggedIn}/>) : (<Redirect to="/profile"/>))} />
-      <Route path='/signup' render={() => (isEmpty(props.user) ? (<Signup loggedIn={props.loggedIn}/>) : (<Redirect to="/profile"/>))}/>
+      <Route 
+        path='/profile' 
+        render={() => 
+          (!isEmpty(props.user) ? (<Profile currentUser={props.user} loggedIn={props.loggedIn}/>) : (<Redirect to="/signup"/>))}/>
+      <Route 
+        path='/login' 
+        render={() => 
+          (isEmpty(props.user) ? 
+            (<Login loggedIn={props.loggedIn}/>) : 
+            (<Redirect to="/profile"/>))} />
+      <Route 
+      path='/signup' 
+      render={() => 
+        (isEmpty(props.user) ? 
+        (<Signup loggedIn={props.loggedIn}/>) : 
+        (<Redirect to="/profile"/>))}/>
     </Switch>
   );
 }
