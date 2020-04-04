@@ -3,9 +3,10 @@ import './Post.css';
 
 class Post extends React.Component {
     render() {
+      console.log(this.props)
         return(
             <div>
-                <a>{this.props.post}</a>
+                <a>{this.props.post.title}</a>
             </div>
         )
     }

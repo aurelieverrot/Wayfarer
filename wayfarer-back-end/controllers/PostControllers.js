@@ -1,6 +1,5 @@
 const db = require('../models');
 
-
 const index = (req, res) => {
     db.Post.find({}, (err, foundPosts) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find all posts.' });
@@ -26,14 +25,18 @@ const update = (req, res) => {
 };
 
 const create = (req, res) => {
+    db.Post.create(req.body, (err, newPost) => {
+      if (err) return res.status(404).json({ status: 404, error: 'Cannot create a new post in the city.' });
 
+      res.json(newPost);
+    })
 };
 
 const destroy = (req, res) => {
-    db.Post.findByIdAndDelete(req.params.postId, (err, result) => {
-        if (err) return res.status(404).json({ status: 404, error: 'Cannot find a post by id and delete' });
-
-        res.json(result);
+    db.Post.findByIdAndDelete(req.parmas.postId, (err, result) => {
+      if (err) return res.status(404).json({ status: 404, error: 'Cannot find post by id and delete'});
+  
+      res.json(result);
     });
 };
 

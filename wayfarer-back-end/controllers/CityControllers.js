@@ -9,8 +9,6 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-  console.log('HERE')
-
   db.City.findById(req.params.cityId, (err, foundCity) => {
     if (err) return res.status(404).json({ status: 404, error: 'Cannot find a city by id.'});
 

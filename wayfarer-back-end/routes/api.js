@@ -16,7 +16,7 @@ router.post('/login', ctrl.auth.login);
 router.delete('/logout', ctrl.auth.logout);
 
     // We might need this one to check if this user is logged in
-// router.get('/verify', ctrl.auth.verify);
+router.get('/verify', ctrl.auth.verify);
 
 // CITY routes------------------------------------
 router.get('/cities', ctrl.cities.index);

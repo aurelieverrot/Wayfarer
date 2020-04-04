@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const register = (req, res) => {
     // Check if Email is taken
+    console.log(req.body)
     db.User.findOne({ email: req.body.email }, (err, foundUser) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot register user.' });
         if (foundUser) return res.status(404).json({ status: 404, error: 'Account already registered.' });
@@ -28,6 +29,7 @@ const register = (req, res) => {
                     // Return success status
 
                     const resUser = {
+                        _id: newUser._id,
                         firstName: newUser.firstName,
                         lastName: newUser.lastName,
                         email: newUser.email,
@@ -50,7 +52,6 @@ const login = (req, res) => {
 
         // Compare passwords
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-            console.log(foundUser.password);
 
             if (err) return res.status(404).json({ status: 404, error: 'Cannot login a user' });
             // If passwords match
@@ -66,6 +67,8 @@ const login = (req, res) => {
 
                 // Save user to a session
                 req.session.currentUser = currentUser;
+                console.log(req.session);
+
                 res.status(201).json({ status: 201, user: currentUser })
             } else {
                 res.status(404).json({ status: 404, error: 'Cannot login. Please, try again.' });
@@ -85,19 +88,22 @@ const logout = (req, res) => {
     });
 };
 
-// const verify = (req, res) => {
-//     if (req.session.currentUser) {
-//         return res.json({
-//             status: 200, 
-//             message: "Authorized",
-//             currentUser: req.session.currentUser
-//         });
-//     };
-// };
+const verify = (req, res) => {
+    console.log(req.session);
+    if (req.session.currentUser) {
+        console.log("HERE");
+        console.log(req.session.currentUser);
+        return res.json({
+            status: 200, 
+            message: "Authorized",
+            currentUser: req.session.currentUser
+        });
+    };
+};
 
 module.exports = {
     register,
     login,
     logout,
-    // verify,
+    verify,
 };
