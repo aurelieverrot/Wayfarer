@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const CitySchema = new mongoose.Schema({
     name: String,
+    country: String,
     photo: String,
     posts: {
       type: mongoose.Schema.Types.ObjectId,
