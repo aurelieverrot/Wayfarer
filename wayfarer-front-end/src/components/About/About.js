@@ -3,46 +3,46 @@ import './About.css'
 const About = () => {
     return(
         <>
-<div class="ui two column grid">
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
+<div className="ui two column grid">
+  <div className="column">
+    <div className="ui fluid card">
+      <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://placebear.com/200/200"/>
       </div>
-      <div class="content">
-        <a class="header">Aurelie Verrot</a>
+      <div className="content">
+        <a className="header">Aurelie Verrot</a>
       </div>
     </div>
   </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
+  <div className="column">
+    <div className="ui fluid card">
+      <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://placebear.com/200/200"/>
       </div>
-      <div class="content">
-        <a class="header">Jacob Kleiman</a>
+      <div className="content">
+        <a className="header">Jacob Kleiman</a>
       </div>
     </div>
   </div>
   </div>
-<div class="ui two column grid">
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
+<div className="ui two column grid">
+  <div className="column">
+    <div className="ui fluid card">
+      <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://placebear.com/200/200"/>
       </div>
-      <div class="content">
-        <a class="header">Kristine Ilano</a>
+      <div className="content">
+        <a className="header">Kristine Ilano</a>
       </div>
     </div>
   </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
+  <div className="column">
+    <div className="ui fluid card">
+      <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://placebear.com/200/200"/>
       </div>
-      <div class="content">
-        <a class="header">Yulia Tsernant</a>
+      <div className="content">
+        <a className="header">Yulia Tsernant</a>
       </div>
     </div>
   </div>
