@@ -1,6 +1,7 @@
 import React from 'react';
 import CityList from '../../components/CityList/CityList';
 import City from '../../components/City/City';
+import UserApi from '../../api/UserApi';
 
 class CityContainer extends React.Component {
 
@@ -32,15 +33,26 @@ class CityContainer extends React.Component {
 
   componentDidMount() {
         // fetch the cities from database (city index)
-
-        // set state, res.data.cities => this.state.cityList
+        UserApi.cityIndex()
+          .then(res => {
+            // set state, res.data.cities => this.state.cityList
+            // console.log(res);
+            this.setState({
+              cityList: res.data
+            })
+          })
     }
 
+  changeCity = index => {
+      this.setState({
+          cityIndex: index
+      })
+  }
   render() {
 
     return(
         <div className="cityContainer">
-            <CityList cities={this.state.cityList}/>
+            <CityList cities={this.state.cityList} changeCity={this.changeCity}/>
             <City city={this.state.cityList[this.state.cityIndex]}/>
         </div>
     )

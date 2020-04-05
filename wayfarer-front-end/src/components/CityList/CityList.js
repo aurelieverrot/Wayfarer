@@ -1,8 +1,12 @@
 import React from 'react';
 
 const CityList = (props) => {
-    let cityList = props.cities.map(city => {
-        return (<div className="item">
+    // let counter = 0;
+    let cityList = props.cities.map(function(city, index) {
+        return (<div className="item" onClick={() => {
+            props.changeCity(index);
+            // counter++;
+        }}>
                 <img className="ui avatar image" src={city.photo}/>
                 <div className="content">
                 <div className="header">{city.name}</div>
