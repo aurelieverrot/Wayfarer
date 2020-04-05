@@ -59,9 +59,9 @@ class Profile extends React.Component {
         UserApi.show(this.props.currentUser._id)
         .then(res => {
             console.log(res);
-            // this.setState({
-            //     user: res.data
-            // })
+            this.setState({
+                user: res.data
+            })
         })
     }
 
@@ -70,7 +70,6 @@ class Profile extends React.Component {
             this.toggleBodyForm()
             if (this.state.messageStyle.display == "block")
                 this.toggleFormMessage();
-
         }
     }
 
