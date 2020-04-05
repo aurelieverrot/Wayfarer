@@ -4,9 +4,6 @@ import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
 class Post extends React.Component {
 
-    // componentDidMount() {
-
-    // }
     render() {
         const pathName = window.location.pathname;
         let cityName = this.props.post.city.name
