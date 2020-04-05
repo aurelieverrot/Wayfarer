@@ -28,17 +28,49 @@ class CityContainer extends React.Component {
                 photo: "https://cdngeneral.rentcafe.com/dmslivecafe/3/20424/Sacramento%20River%20with%20yellow%20bridge.jpg?crop=(0,70,300,200)&cropxunits=300&cropyunits=200&quality=85&scale=both&",
               },
         ],
-        cityIndex: 0
+        cityIndex: 0,
+        paramsId: ''
     }
 
-  componentDidMount() {
+  componentDidUpdate = (prevProps, prevState) => {
+    // console.log()
+    const pathName = window.location.pathname.split('/')[2];
+    if (prevState.paramsId && prevState.paramsId !== pathName) {
+      let cityIndex = 0;
+      this.state.cityList.forEach(function(city, index) {
+        if (pathName === city._id) {
+          cityIndex = index;
+          return cityIndex;
+        }
+      })
+      this.setState({
+        cityIndex: cityIndex,
+        paramsId: pathName
+      })
+    }
+  }
+  componentDidMount = () => {
         // fetch the cities from database (city index)
         UserApi.cityIndex()
           .then(res => {
             // set state, res.data.cities => this.state.cityList
             // console.log(res);
+
+            let cityIndex = 0; // 0, 1, 2
+            const pathName = window.location.pathname.split('/')[2];
+            // console.log(pathName);
+
+            res.data.forEach(function(city, index) {
+              if (pathName === city._id) {
+                cityIndex = index;
+                return cityIndex;
+              }
+            });
+            console.log(cityIndex);
             this.setState({
-              cityList: res.data
+              cityList: res.data,
+              cityIndex: cityIndex,
+              paramsId: pathName
             })
           })
     }
@@ -49,7 +81,7 @@ class CityContainer extends React.Component {
       })
   }
   render() {
-
+    console.log(this.state.cityIndex);
     return(
         <div className="cityContainer">
             <CityList cities={this.state.cityList} changeCity={this.changeCity}/>

@@ -26,11 +26,11 @@ class Header extends React.Component {
         <Link to={'/'} className="active item">Home</Link>,
         <Link to={'/about'} className="item">About</Link>, 
         <Link to={'/profile'} className="item">Profile</Link>
-        <Link to={'/cities'} className="item">Cities</Link>
+        <Link to={'/cities/binglerz'} className="item">Cities</Link>
         </>]
 
         rightLinks = [<>
-        <Link onClick={this.props.logout} to={'/'}className="ui inverted button">Sign Out</Link>
+        <Link onClick={this.props.logout} to={'/'} className="ui inverted button">Sign Out</Link>
         </>]
     }
         return (

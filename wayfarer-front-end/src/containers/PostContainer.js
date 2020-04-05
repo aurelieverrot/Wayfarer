@@ -18,17 +18,17 @@ class PostContainer extends React.Component {
           
             if (pathName === '/profile') {
                 const userPost = res.data.filter((post) => {
-                    return post.user === this.props.id
+                    return post.user._id === this.props.id
                     
                 })
-                
+                console.log(userPost);
                 this.setState({
                     posts: userPost
                 });
             } else {
                 // /cities
                 const cityPost = res.data.filter((post) => {
-                    return post.city === this.props.cityId
+                    return post.city._id === this.props.cityId
                 })
                 console.log("city posts:",cityPost);
                 this.setState({
