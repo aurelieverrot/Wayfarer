@@ -4,7 +4,8 @@ import UserApi from '../api/UserApi';
 
 class PostContainer extends React.Component {
     state = {
-        posts: this.props.posts
+        posts: this.props.posts,
+        pathName: ""
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -23,7 +24,8 @@ class PostContainer extends React.Component {
                 })
                 console.log(userPost);
                 this.setState({
-                    posts: userPost
+                    posts: userPost,
+                    pathName: pathName
                 });
             } else {
                 // /cities
@@ -32,7 +34,8 @@ class PostContainer extends React.Component {
                 })
                 console.log("city posts:",cityPost);
                 this.setState({
-                    posts: cityPost
+                    posts: cityPost,
+                    pathName: pathName
                 })}
           });
         }
@@ -67,14 +70,25 @@ class PostContainer extends React.Component {
 
     render() {
         let posts = this.state.posts;
-        
-        return(
-            <div className="ui container segment">
-                <h1>Posts</h1>
+        if (this.state.pathName === '/profile') {
+            return(
+                <div className="ui container segment">
+                    <h1>Posts</h1>
+                    {posts && posts.map(post => {
+                        return <Post post={post} key={post._id} />    
+                    })}
+                </div>
+            )
+        }
+        return (
+            <>
+            <h2>Posts</h2>
+            <div class="ui cards">
                 {posts && posts.map(post => {
-                    return <Post post={post} key={post._id} />    
+                    return <Post post={post} key={post._id} />
                 })}
-            </div>
+                </div>
+            </>
         )
     }
 }
