@@ -38,7 +38,7 @@ class CityContainer extends React.Component {
     if (prevState.paramsId && prevState.paramsId !== pathName) {
       let cityIndex = 0;
       this.state.cityList.forEach(function(city, index) {
-        if (pathName === city._id) {
+        if (pathName === city.name.replace(/\s+/g, '-').toLowerCase()) {
           cityIndex = index;
           return cityIndex;
         }
@@ -61,7 +61,7 @@ class CityContainer extends React.Component {
             // console.log(pathName);
 
             res.data.forEach(function(city, index) {
-              if (pathName === city._id) {
+              if (pathName === city.name.replace(/\s+/g, '-').toLowerCase()) {
                 cityIndex = index;
                 return cityIndex;
               }

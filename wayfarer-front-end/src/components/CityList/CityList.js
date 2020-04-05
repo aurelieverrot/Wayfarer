@@ -5,7 +5,7 @@ const CityList = (props) => {
     // let counter = 0;
     let cityList = props.cities.map(function(city, index) {
         return (<Link className="item" to={{
-            pathname:`/cities/${city._id}`
+            pathname:`/cities/${city.name.replace(/\s+/g,'-').toLowerCase()}`
         }}
         // onClick={() => {
         //     // props.changeCity(index);

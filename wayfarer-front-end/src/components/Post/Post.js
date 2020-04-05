@@ -9,12 +9,14 @@ class Post extends React.Component {
     // }
     render() {
         const pathName = window.location.pathname;
-        console.log(pathName);
+        let cityName = this.props.post.city.name
+        cityName = cityName.replace(/\s+/g, '-').toLowerCase();
+        console.log(cityName);
         if (pathName === '/profile') {
             return (
                 <div>
                     <Link to={{
-                    pathname: `/cities/${this.props.post.city._id}`,
+                    pathname: `/cities/${cityName}`,
                    }}>{this.props.post.title}</Link>
                 </div> 
             )

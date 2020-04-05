@@ -26,7 +26,7 @@ class Header extends React.Component {
         <Link to={'/'} className="active item">Home</Link>,
         <Link to={'/about'} className="item">About</Link>, 
         <Link to={'/profile'} className="item">Profile</Link>
-        <Link to={'/cities/binglerz'} className="item">Cities</Link>
+        <Link to={'/cities/san-francisco'} className="item">Cities</Link>
         </>]
 
         rightLinks = [<>
