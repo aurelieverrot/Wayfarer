@@ -36,6 +36,10 @@ const postIndex = () => {
     return request;
 }
 
+const cityIndex = () => {
+    return axios.get(endpoint+'/api/v1/cities')
+}
+
 export default {
     login,
     signup,
@@ -43,5 +47,6 @@ export default {
     verify,
     show,
     update,
-    postIndex
+    postIndex,
+    cityIndex
 }
