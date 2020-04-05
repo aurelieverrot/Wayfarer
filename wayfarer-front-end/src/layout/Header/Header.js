@@ -7,46 +7,68 @@ class Header extends React.Component {
     render() {
     let leftLinks = [];
     let rightLinks = [];
+
+    let notLoggedLabels = ['Home', 'About', 'Log In', 'Sign Up'];
+    let notLoggedLeftLinks = {
+        '/': "active item",
+        '/about': "item",
+    };
+    let notLoggedRightLinks = { 
+        '/login': "ui inverted button",
+        '/signup': "ui inverted button"
+    };
+
+    let loggedLabels = ['Home', 'About', 'Profile', 'Cities', 'Sign Out'];
+    let loggedLeftLinks = { 
+        '/': "active item",
+        '/about': "item",
+        '/profile': "item",
+        '/cities/san-francisco': "item" 
+    };
+    let loggedRightLinks = { 
+        '/': "ui inverted button",
+    };
+
     if (!this.props.loggedIn) {
         //if user not loggedin
-        //populate left links with necessary fields
-        leftLinks= [<><Link to={'/'} key={0} className="active item">Home</Link>,
-        <Link to={'/about'} key={1} className="item">About</Link></>]
-        rightLinks = [<><Link to={'/login'} className="ui inverted button">Log In</Link>
-        <Link to={'/signup'} key={3} className="ui inverted button">Sign Up</Link></>]
+        let idx = 0;
+        for (let key in notLoggedLeftLinks) {
+            leftLinks.push(<Link to={ key } key={ idx } className={ notLoggedLeftLinks[key] }>{notLoggedLabels[idx]}</Link>);
+            idx += 1;
+        };
+
+        for (let key in notLoggedRightLinks) {
+            rightLinks.push(<Link to={ key } key={ idx } className={ notLoggedRightLinks[key] }>{notLoggedLabels[idx]}</Link>);
+            idx += 1;
+        };
     }
     else {
         // user is loggedin
-        leftLinks= [<>
-        <Link to={'/'} key={0} className="active item">Home</Link>,
-        <Link to={'/about'} key={1} className="item">About</Link>, 
-        <Link to={'/profile'} key={2} className="item">Profile</Link>
-        <Link to={'/cities/san-francisco'} key={3} className="item">Cities</Link>
-        </>]
+        let idx = 0;
+        for (let key in loggedLeftLinks) {
+            leftLinks.push(<Link to={ key } key={ idx } className={ loggedLeftLinks[key] }>{loggedLabels[idx]}</Link>);
+            idx += 1;
+        };
 
-        rightLinks = [<>
-        <Link onClick={this.props.logout} key={4} to={'/'} className="ui inverted button">Sign Out</Link>
-        </>]
+        for (let key in loggedRightLinks) {
+            rightLinks.push(<Link onClick={this.props.logout} to={ key } key={ idx } className={ loggedRightLinks[key] }>{loggedLabels[idx]}</Link>);
+            idx += 1;
+        };
     }
         return (
-        <div class="pusher">
-                <div class="ui container">
-                    <div class="ui large secondary inverted pointing menu">
-                        <a class="toc item">
-                        <i class="sidebar icon"></i>
+            <div className="pusher">
+                <div className="ui container">
+                    <div className="ui large secondary inverted pointing menu">
+                        <a className="toc item">
+                        <i className="sidebar icon"></i>
                         </a>
-                        {/* <Link to={'/'} className="active item">Home</Link>
-                        <Link to={'/profile'} className="item">Profile</Link> */}
-                        {leftLinks}
-                        <div class="right item">
-                            {/* <Link to={'/login'} className="ui inverted button">Log In</Link>
-                            <Link to={'/signup'} className="ui inverted button">Sign Up</Link> */}
-                        {rightLinks}
-
+                            {leftLinks}
+                        <div className="right item">
+                            {rightLinks}
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
         )
     }
 }
