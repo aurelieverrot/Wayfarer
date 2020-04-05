@@ -5,14 +5,8 @@ const CityList = (props) => {
     // let counter = 0;
     let cityList = props.cities.map(function(city, index) {
         return (<Link className="item" to={{
-            pathname:`/cities/${city._id}`
-        }}
-        // onClick={() => {
-        //     // props.changeCity(index);
-        //     // redirect
-
-        // }}
-        >
+            pathname:`/cities/${city.name.replace(/\s+/g,'-').toLowerCase()}`
+        }}>
                 <img className="ui avatar image" src={city.photo}/>
                 <div className="content">
                 <div className="header">{city.name}</div>

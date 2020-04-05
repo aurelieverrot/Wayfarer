@@ -12,12 +12,9 @@ class App extends React.Component {
   }
   componentDidMount = () => {
     // verify current session
-    console.log("verifying");
     UserApi.verify()
     .then(res => {
     // if status 200, set loggedIn to true, currentUser to non-null
-      console.log("~~~~~~")
-      // console.log(res.data.currentUser);
       this.setState({
           loggedIn: true,
           currentUser: res.data.currentUser
