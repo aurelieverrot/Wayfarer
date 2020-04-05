@@ -1,0 +1,7 @@
+.city {
+    width: 66%;
+    display: inline-block;
+}
+.city img{
+    width: 500px;
+}

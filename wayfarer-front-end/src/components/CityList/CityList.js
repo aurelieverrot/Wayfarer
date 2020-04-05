@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './CityList.css';
 
 const CityList = (props) => {
     // let counter = 0;
@@ -13,7 +14,7 @@ const CityList = (props) => {
                 </div>
             </Link>)})
     return(
-        <div className="ui middle aligned selection list">
+        <div className="ui middle aligned selection massive list" id="cityList">
             {cityList}
         </div>
     );
