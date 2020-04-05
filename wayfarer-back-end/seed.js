@@ -63,25 +63,6 @@ const cities = [
     },
 ];
 
-const posts = [
-  {
-    title: 'Post One',
-    body: 'This is the body for Post One.'
-  },
-  {
-    title: 'Post Two',
-    body: 'This is the body for Post Two.'
-  },
-  {
-    title: 'Post Three',
-    body: 'This is the body for Post Three.'
-  },
-  {
-    title: 'Post Four',
-    body: 'This is the body for Post Four.'
-  },
-];
-
 // Delete All Cities
 console.log('Deleting all cities...');
 
