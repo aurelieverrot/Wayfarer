@@ -7,29 +7,62 @@ class PostContainer extends React.Component {
         posts: this.props.posts
     }
 
-    componentDidMount() {
-        const pathName = window.location.pathname;
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps !== this.props) {
+            // post index
+            console.log('Index all posts')
+            const pathName = window.location.pathname;
         
         UserApi.postIndex()
         .then(res => {
           
             if (pathName === '/profile') {
                 const userPost = res.data.filter((post) => {
-                    return post.user === this.props.id
+                    return post.user._id === this.props.id
                     
                 })
-                
+                console.log(userPost);
                 this.setState({
                     posts: userPost
                 });
             } else {
+                // /cities
                 const cityPost = res.data.filter((post) => {
-                    return post.city === this.props.cityId
+                    return post.city._id === this.props.cityId
                 })
+                console.log("city posts:",cityPost);
                 this.setState({
                     posts: cityPost
                 })}
           });
+        }
+    }
+
+    componentDidMount() {
+        // const pathName = window.location.pathname;
+        
+        // UserApi.postIndex()
+        // .then(res => {
+          
+        //     if (pathName === '/profile') {
+        //         const userPost = res.data.filter((post) => {
+        //             return post.user === this.props.id
+                    
+        //         })
+                
+        //         this.setState({
+        //             posts: userPost
+        //         });
+        //     } else {
+        //         // /cities
+        //         const cityPost = res.data.filter((post) => {
+        //             return post.city === this.props.cityId
+        //         })
+        //         console.log("city posts:",cityPost);
+        //         this.setState({
+        //             posts: cityPost
+        //         })}
+        //   });
     }
 
     render() {

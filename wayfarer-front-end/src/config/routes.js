@@ -5,6 +5,7 @@ import About from '../components/About/About';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 import Profile from '../components/Profile/Profile';
+import CityContainer from '../containers/CityContainer/CityContainer';
 
 const Routes = (props) => {
   function isEmpty(obj) {
@@ -14,8 +15,6 @@ const Routes = (props) => {
     }
     return true;
 }
-  console.log(props)
-  console.log(isEmpty(props.user))
   return (
     <Switch>
       <Route exact path='/' component={ Home } />
@@ -36,6 +35,12 @@ const Routes = (props) => {
         (isEmpty(props.user) ? 
         (<Signup loggedIn={props.loggedIn}/>) : 
         (<Redirect to="/profile"/>))}/>
+        <Route 
+      path='/cities/:id' 
+      render={() => 
+        (!isEmpty(props.user) ? 
+        (<CityContainer location={props.location} />) : 
+        (<Redirect to="/signup"/>))}/>
     </Switch>
   );
 }
