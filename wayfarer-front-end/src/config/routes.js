@@ -15,9 +15,6 @@ const Routes = (props) => {
     }
     return true;
 }
-  // console.log(props.location);
-  // console.log(isEmpty(props.user))
-  console.log(props.location)
   return (
     <Switch>
       <Route exact path='/' component={ Home } />

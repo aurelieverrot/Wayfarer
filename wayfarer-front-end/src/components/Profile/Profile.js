@@ -88,8 +88,6 @@ class Profile extends React.Component {
 
     render(){
         let date = new Date(this.state.user.createdAt);
-        console.log(`JOINED DATE IS`)
-        console.log(this.state.user) 
         return(
         <div className="ui container segment" id="container-segment">
             <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
@@ -112,25 +110,12 @@ class Profile extends React.Component {
                         <input value={date.toLocaleDateString()}/>
                     </div>
                 </div>
-                <div class="ui success message" style={this.state.messageStyle}>
-                <div class="header">Profile Updated!</div>
+                <div className="ui success message" style={this.state.messageStyle}>
+                <div className="header">Profile Updated!</div>
                 <p>Your profile has successfully been updated.</p>
             </div>
                 <button className="ui submit button" style={this.state.formStyle}>Update Profile</button>
             </form>
-            {/* <span
-                className='edit'
-                onClick={this.toggleBodyForm}>
-                    Edit Your Profile
-            </span>
-            <ProfileForm
-                    user={this.state.user}
-                    style={this.state.formStyle}
-                    autoFocus={true}
-                    buttonName="Update Your Profile"
-                    updateProfile={this.updateProfile}
-                    toggleBodyForm={this.toggleBodyForm} /> */}
-
         <PostContainer id={this.state.user._id}/>
         </div>
         )
