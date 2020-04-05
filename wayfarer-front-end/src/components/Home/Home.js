@@ -7,8 +7,8 @@ const Home = (props) => {
     return(
         // if login, remove Wayfarer
         // if signup, remove Wayfarer
-        <div class="ui text container">
-            <h1 class="ui inverted header">
+        <div className="ui text container">
+            <h1 className="ui inverted header">
                 Wayfarer
             </h1>
         </div> 
