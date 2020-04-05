@@ -1,6 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
 import PostContainer from '../../containers/PostContainer';
 
 const City = (props) => {
@@ -34,6 +32,5 @@ const City = (props) => {
   //   </div>
   // )
 }
->>>>>>> submaster
 
 export default City;
