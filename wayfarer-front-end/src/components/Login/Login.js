@@ -62,7 +62,7 @@ class Login extends React.Component {
                         <input onInput={this.updateState} name="password" type="password"/>
                     </div>
                 </div>
-            <button class="ui submit button">Login</button>
+            <button className="ui submit button">Login</button>
         </form>
         );
     }
