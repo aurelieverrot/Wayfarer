@@ -40,7 +40,7 @@ const register = (req, res) => {
                     res.status(201).json({status: 201, user: resUser, message: "User Created!" });
 
                     // AUTO SENDING EMAIL
-                    
+
                     // let params = {
                     //     Destination: { /* required */
                     //         CcAddresses: [
@@ -123,6 +123,7 @@ const login = (req, res) => {
                     email: foundUser.email,
                     city: foundUser.city,
                     photo: foundUser.photo,
+                    createdAt: foundUser.createdAt
                 };
 
                 // Save user to a session

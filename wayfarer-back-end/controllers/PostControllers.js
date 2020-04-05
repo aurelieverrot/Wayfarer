@@ -1,7 +1,10 @@
 const db = require("../models");
 
 const index = (req, res) => {
-    db.Post.find({}, (err, foundPosts) => {
+    db.Post.find({})
+    .populate('user', '_id firstName lastName photo')
+    .populate('city', '_id name photo')
+    .exec((err, foundPosts) => {
         if (err) return res.status(404).json({ status: 404, error: "Cannot find all posts." });
 
         res.json(foundPosts);
@@ -9,7 +12,10 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    db.Post.findById(req.params.postId, (err, foundPost) => {
+    db.Post.findById(req.params.postId) 
+    .populate('user', '_id firstName lastName photo')
+    .populate('city', '_id name photo')
+    .exec((err, foundPost) => {
         if (err) return res.status(404).json({ status: 404, error: "Cannot find a post by id." });
 
         res.json(foundPost);
