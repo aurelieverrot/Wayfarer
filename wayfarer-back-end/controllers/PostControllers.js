@@ -39,7 +39,7 @@ const create = (req, res) => {
 };
 
 const destroy = (req, res) => {
-    db.Post.findByIdAndDelete(req.parmas.postId, (err, result) => {
+    db.Post.findByIdAndDelete(req.params.postId, (err, result) => {
       if (err) return res.status(404).json({ status: 404, error: "Cannot find post by id and delete"});
   
       res.json(result);
