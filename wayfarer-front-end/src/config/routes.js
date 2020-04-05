@@ -15,8 +15,9 @@ const Routes = (props) => {
     }
     return true;
 }
-  console.log(props)
-  console.log(isEmpty(props.user))
+  // console.log(props.location);
+  // console.log(isEmpty(props.user))
+  console.log(props.location)
   return (
     <Switch>
       <Route exact path='/' component={ Home } />
@@ -38,10 +39,10 @@ const Routes = (props) => {
         (<Signup loggedIn={props.loggedIn}/>) : 
         (<Redirect to="/profile"/>))}/>
         <Route 
-      path='/cities' 
+      path='/cities/:id' 
       render={() => 
         (!isEmpty(props.user) ? 
-        (<CityContainer />) : 
+        (<CityContainer location={props.location} />) : 
         (<Redirect to="/signup"/>))}/>
     </Switch>
   );
