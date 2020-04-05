@@ -11,7 +11,7 @@ class Post extends React.Component {
         const pathName = window.location.pathname;
         let cityName = this.props.post.city.name
         cityName = cityName.replace(/\s+/g, '-').toLowerCase();
-        console.log(cityName);
+        // profile posts
         if (pathName === '/profile') {
             return (
                 <div>
@@ -21,7 +21,7 @@ class Post extends React.Component {
                 </div> 
             )
         }
-        console.log("rendering city posts")
+        // city posts
         return(
             <div>
                 <a>{this.props.post.title}</a>
