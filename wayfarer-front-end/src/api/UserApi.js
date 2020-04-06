@@ -36,6 +36,10 @@ const postIndex = () => {
     return request;
 }
 
+const postCreate = (post) => {
+    return axios.post(endpoint+'/api/v1/posts',post);
+}
+
 const cityIndex = () => {
     return axios.get(endpoint+'/api/v1/cities')
 }
@@ -48,5 +52,6 @@ export default {
     show,
     update,
     postIndex,
+    postCreate,
     cityIndex
 }

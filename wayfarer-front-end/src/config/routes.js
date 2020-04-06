@@ -15,6 +15,10 @@ const Routes = (props) => {
     }
     return true;
 }
+  console.log(props.user);
+  if (isEmpty(props.user)) {
+    // return (<div><Home/></div>)
+  }
   return (
     <Switch>
       <Route exact path='/' component={ Home } />
@@ -39,7 +43,7 @@ const Routes = (props) => {
       path='/cities/:id' 
       render={() => 
         (!isEmpty(props.user) ? 
-        (<CityContainer location={props.location} />) : 
+        (<CityContainer user={props.user} />) : 
         (<Redirect to="/signup"/>))}/>
     </Switch>
   );
