@@ -33,7 +33,6 @@ class CityContainer extends React.Component {
     }
 
   componentDidUpdate = (prevProps, prevState) => {
-    // console.log()
     const pathName = window.location.pathname.split('/')[2];
     if (prevState.paramsId && prevState.paramsId !== pathName) {
       let cityIndex = 0;
@@ -54,11 +53,9 @@ class CityContainer extends React.Component {
         UserApi.cityIndex()
           .then(res => {
             // set state, res.data.cities => this.state.cityList
-            // console.log(res);
 
             let cityIndex = 0; // 0, 1, 2
             const pathName = window.location.pathname.split('/')[2];
-            // console.log(pathName);
 
             res.data.forEach(function(city, index) {
               if (pathName === city.name.replace(/\s+/g, '-').toLowerCase()) {
@@ -66,7 +63,6 @@ class CityContainer extends React.Component {
                 return cityIndex;
               }
             });
-            console.log(cityIndex);
             this.setState({
               cityList: res.data,
               cityIndex: cityIndex,
@@ -81,7 +77,6 @@ class CityContainer extends React.Component {
       })
   }
   render() {
-    console.log(this.state.cityIndex);
     return(
         <div className="cityContainer">
             <CityList cities={this.state.cityList} changeCity={this.changeCity}/>

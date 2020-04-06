@@ -24,7 +24,6 @@ class PostModal extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     // validate forms
-    console.log("Submitting form");
     if (this.validateFields()) {
       UserApi.postCreate({
         title: document.getElementById('title').value,
@@ -33,7 +32,6 @@ class PostModal extends React.Component {
         city: this.props.cityId,
       })
       .then(res => {
-        // console.log(res);
         this.props.update();
         this.onClose();
       });
