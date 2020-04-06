@@ -1,10 +1,14 @@
 import React from 'react';
 import Post from '../components/Post/Post';
 import UserApi from '../api/UserApi';
+import PostModal from '../components/Post/PostModal'
+import $ from 'jquery';
 
 class PostContainer extends React.Component {
     state = {
-        posts: this.props.posts
+        posts: this.props.posts,
+        pathName: "",
+        isOpen: false
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -23,7 +27,8 @@ class PostContainer extends React.Component {
                 })
                 console.log(userPost);
                 this.setState({
-                    posts: userPost
+                    posts: userPost,
+                    pathName: pathName
                 });
             } else {
                 // /cities
@@ -32,7 +37,8 @@ class PostContainer extends React.Component {
                 })
                 console.log("city posts:",cityPost);
                 this.setState({
-                    posts: cityPost
+                    posts: cityPost,
+                    pathName: pathName
                 })}
           });
         }
@@ -65,16 +71,60 @@ class PostContainer extends React.Component {
         //   });
     }
 
+    toggleModal = () => {
+        $('.ui.modal').modal('show');
+    }
+
     render() {
         let posts = this.state.posts;
-        
-        return(
-            <div className="ui container segment">
-                <h1>Posts</h1>
+        if (this.state.pathName === '/profile') {
+            return(
+                <div className="ui container segment">
+                    <h1>Posts</h1>
+                    {posts && posts.map(post => {
+                        return <Post post={post} key={post._id} />    
+                    })}
+                </div>
+            )
+        }
+        return (
+            <>
+            <h2>Posts</h2>            
+            <button className="ui circular" onClick={this.toggleModal}>+</button>
+            <div className="modal">
+            {/* <PostModal onClose={this.toggleModal}>Here's some text</PostModal> */}
+
+            <div class="ui modal">
+                <i class="close icon"></i>
+                <div class="header">
+                  Profile Picture
+                </div>
+                <div class="image content">
+                  <div class="ui medium image">
+                  </div>
+                  <div class="description">
+                    <div class="ui header">We've auto-chosen a profile image for you.</div>
+                    <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+                    <p>Is it okay to use this photo?</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="ui black deny button">
+                    Nope
+                  </div>
+                  <div class="ui positive right labeled icon button">
+                    Yep, that's me
+                    <i class="checkmark icon"></i>
+                  </div>
+                </div>
+            </div>
+            </div>
+            <div className="ui cards">
                 {posts && posts.map(post => {
-                    return <Post post={post} key={post._id} />    
+                    return <Post post={post} key={post._id} />
                 })}
             </div>
+            </>
         )
     }
 }
