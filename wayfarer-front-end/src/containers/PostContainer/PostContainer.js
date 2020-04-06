@@ -24,13 +24,11 @@ class PostContainer extends React.Component {
     };
 
     updatePosts = () => {
-        console.log("Indexing all posts");
         UserApi.postIndex()
         .then(res => {
             const cityPost = res.data.filter((post) => {
                 return post.city._id === this.props.cityId
             })
-            console.log("city posts:",cityPost);
             this.setState({
                 posts: cityPost,
             })}
@@ -38,45 +36,37 @@ class PostContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(prevState, this.state);
         if (prevProps !== this.props) {
             // post index
-            console.log('Index all posts')
             const pathName = window.location.pathname;
-        
-        UserApi.postIndex()
-        .then(res => {
-          
-            if (pathName === '/profile') {
-                const userPost = res.data.filter((post) => {
-                    return post.user._id === this.props.id
-                    
-                })
-                console.log(userPost);
-                this.setState({
-                    posts: userPost,
-                    pathName: pathName
-                });
-            } else {
-                // /cities
-                const cityPost = res.data.filter((post) => {
-                    return post.city._id === this.props.cityId
-                })
-                console.log("city posts:",cityPost);
-                this.setState({
-                    posts: cityPost,
-                    pathName: pathName
-                })}
-          });
+            
+            UserApi.postIndex()
+            .then(res => {
+            
+                if (pathName === '/profile') {
+                    const userPost = res.data.filter((post) => {
+                        return post.user._id === this.props.id
+                        
+                    })
+                    this.setState({
+                        posts: userPost,
+                        pathName: pathName
+                    });
+                } else {
+                    // /cities
+                    const cityPost = res.data.filter((post) => {
+                        return post.city._id === this.props.cityId
+                    })
+                    this.setState({
+                        posts: cityPost,
+                        pathName: pathName
+                    })}
+            });
         };
-    };
-
-    componentDidMount() {
     };
 
     render() {
         let posts = this.state.posts;
-        // console.log(this.props)
         if (this.state.pathName === '/profile') {
             return(
                 <div className="ui container segment">

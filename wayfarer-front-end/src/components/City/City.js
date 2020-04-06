@@ -5,8 +5,6 @@ import './City.css';
 const City = (props) => {
 
   // props => city { _id , name, country, photo}
-  // console.log(props.city._id);
-  // console.log(props)
   return (
     <div className="ui raised segment city" id="city">
       <div className="cityText">
@@ -17,24 +15,6 @@ const City = (props) => {
       {<PostContainer cityId={props.city._id} user={props.user}/>}
     </div>
   );
-  // const posts = props.city.posts.map((post) => {
-  //   return(
-  //   <li>
-  //     <p>{post.title}</p>
-  //     <p>{post.body}</p>
-  //   </li>
-  // )}) 
-
-  // return(
-  //   <div>
-  //     <h1>{props.city.name}</h1>
-  //     <img
-  //       src='https://picsum.photos/200/300' />
-  //     <ul>
-  //       <li>{posts}</li>
-  //     </ul>
-  //   </div>
-  // )
 }
 
 export default City;
