@@ -51,18 +51,46 @@ class Profile extends React.Component {
                 city: document.getElementById('city').value
             })
     }
-    componentDidMount() {
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.currentUser._id !== this.props.currentUser._id) {
         this.setState({
             user: this.props.currentUser
         })
 
         UserApi.show(this.props.currentUser._id)
         .then(res => {
-            console.log(res);
             this.setState({
                 user: res.data
             })
         })
+        }
+    }
+    componentDidMount() {
+        // if (!this.props.currentUser) {
+        //     console.log("user not found");
+        //     UserApi.verify()
+        //       .then(res => {
+        //           console.log(res.data);
+        //           UserApi.show(res.data.currentUser._id)
+        //             .then(res => {
+        //                 this.setState({
+        //                     user: res.data
+        //                 });
+        //             });
+        //       });
+        // }
+        // else {
+            this.setState({
+                user: this.props.currentUser
+            })
+
+            UserApi.show(this.props.currentUser._id)
+            .then(res => {
+                this.setState({
+                    user: res.data
+                })
+            })
+        // }
     }
 
     changeField = (event) => {
@@ -74,9 +102,6 @@ class Profile extends React.Component {
     }
 
     updateProfile = user => {
-        const isUpdatedProfile = user => {
-            return user._id === user._id;
-        };
         UserApi.update(user)
             .then((res) => {
                 this.toggleBodyForm();

@@ -12,7 +12,6 @@ class App extends React.Component {
   }
   componentDidMount = () => {
     // verify current session
-    console.log("Verifying")
     UserApi.verify()
     .then(res => {
     // if status 200, set loggedIn to true, currentUser to non-null
@@ -24,18 +23,19 @@ class App extends React.Component {
     // if status 200, set loggedIn to true, currentUser to non-null
   }
   loggedIn = (user) => {
-    console.log(user);
+    localStorage.setItem('loggedIn', true);
     this.setState({
       loggedIn: true,
       currentUser: user
     })
   }
   logout = () => {
+    localStorage.setItem('loggedIn', false);
     this.setState({
       loggedIn: false,
       currentUser: ''
     })
-    UserApi.logout()
+    UserApi.logout();
   }
   render() {
     return (
