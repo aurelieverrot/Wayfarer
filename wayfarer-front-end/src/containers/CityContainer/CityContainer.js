@@ -85,7 +85,7 @@ class CityContainer extends React.Component {
     return(
         <div className="cityContainer">
             <CityList cities={this.state.cityList} changeCity={this.changeCity}/>
-            <City city={this.state.cityList[this.state.cityIndex]}/>
+            <City city={this.state.cityList[this.state.cityIndex]} user={this.props.user}/>
         </div>
     )
   }

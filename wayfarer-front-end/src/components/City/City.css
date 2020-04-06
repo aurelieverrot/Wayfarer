@@ -3,5 +3,11 @@
     display: inline-block;
 }
 .city img{
-    width: 500px;
+    width: 300px;
+}
+.cityText {
+    display: inline-block;
+    margin: 25px;
+    /* margin-right: 100px; */
+    margin-right: 20%;
 }
