@@ -20,7 +20,7 @@ class Signup extends React.Component {
         keys.map(key => {
             let field = document.getElementById(key);
             field.classList.remove('error');
-            if (this.state[key] == '') {
+            if (this.state[key] === '') {
                 valid = false;
                 // add class error to fields
                 field.classList.add('error');
