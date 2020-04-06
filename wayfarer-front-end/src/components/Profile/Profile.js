@@ -2,7 +2,7 @@ import React from 'react';
 import UserApi from '../../api/UserApi';
 // import ProfileForm from './ProfileForm';
 import './Profile.css';
-import PostContainer from '../../containers/PostContainer';
+import PostContainer from '../../containers/PostContainer/PostContainer';
 
 class Profile extends React.Component {
     state = {

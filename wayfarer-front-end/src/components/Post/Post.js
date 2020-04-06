@@ -19,6 +19,15 @@ class Post extends React.Component {
             )
         }
         // city posts
+        let extraContent = []
+        if (this.props.post.user._id === this.props.user._id) {
+            extraContent.push(<><button class="ui primary button">
+            Update
+          </button>
+          <button class="ui button">
+            Delete
+          </button></>);
+        }
         return(
             // <div>
             //     <h2>{this.props.post.title}</h2>
@@ -37,7 +46,7 @@ class Post extends React.Component {
             </div>
             </div>
             <div class="extra content">
-                Comments
+                {extraContent}
             </div>
         </div>
         )

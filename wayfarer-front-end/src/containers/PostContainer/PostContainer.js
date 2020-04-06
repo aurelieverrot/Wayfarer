@@ -1,7 +1,8 @@
 import React from 'react';
-import Post from '../components/Post/Post';
-import UserApi from '../api/UserApi';
-import PostModal from '../components/Post/PostModal'
+import Post from '../../components/Post/Post';
+import UserApi from '../../api/UserApi';
+import PostModal from '../../components/Post/PostModal'
+import './PostContainer.css';
 
 class PostContainer extends React.Component {
     state = {
@@ -20,9 +21,20 @@ class PostContainer extends React.Component {
         this.setState({
             show: !this.state.show
         });
-
-        console.log("INSIDE OF THE FORM")
     };
+
+    updatePosts = () => {
+        UserApi.postIndex()
+        .then(res => {
+            const cityPost = res.data.filter((post) => {
+                return post.city._id === this.props.cityId
+            })
+            console.log("city posts:",cityPost);
+            this.setState({
+                posts: cityPost,
+            })}
+      );
+    }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps !== this.props) {
@@ -62,6 +74,7 @@ class PostContainer extends React.Component {
 
     render() {
         let posts = this.state.posts;
+        // console.log(this.props)
         if (this.state.pathName === '/profile') {
             return(
                 <div className="ui container segment">
@@ -75,9 +88,14 @@ class PostContainer extends React.Component {
 
         return (
             <>
-            <h2>Posts</h2>            
-            <button id="centered-toggle-button" className="ui circular" onClick={e => {this.showModal()}}>+</button>
-            <PostModal show={this.state.show} onClose={this.handleClose}/>
+            <h2 className="cityPostHeader">Posts</h2>            
+            <button id="centered-toggle-button" className="ui button" onClick={e => {this.showModal()}}>Add Post</button>
+            <PostModal show={this.state.show} cityId={this.props.cityId} user={this.props.user} onClose={this.handleClose} update={this.updatePosts}/>
+            <div class="ui cards">
+                {posts && posts.map(post => {
+                    return <Post post={post} user={this.props.user} key={post._id} />
+                })}
+                </div>
             </>
         )
     }

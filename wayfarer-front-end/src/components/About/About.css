@@ -1,7 +1,12 @@
 .image {
-    width: 150px;
+    /* width: 150px; */
     margin: 0 auto;
 }
-img.avi{
+.image img{
     border-radius: 50%;
+    border: 1px solid black;
+}
+.ui.fluid.card {
+    width: 60%;
+    margin: 20px;
 }
