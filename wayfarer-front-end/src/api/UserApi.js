@@ -40,9 +40,15 @@ const postCreate = (post) => {
     return axios.post(endpoint+'/api/v1/posts',post);
 }
 
+const postDelete = (post) => {
+  return axios.delete(endpoint+'/api/v1/posts/'+post._id)
+}
+
 const cityIndex = () => {
     return axios.get(endpoint+'/api/v1/cities')
 }
+
+
 
 export default {
     login,
@@ -53,5 +59,6 @@ export default {
     update,
     postIndex,
     postCreate,
-    cityIndex
+    cityIndex,
+    postDelete
 }

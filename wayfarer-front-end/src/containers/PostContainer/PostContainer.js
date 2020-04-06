@@ -27,9 +27,10 @@ class PostContainer extends React.Component {
         console.log("Indexing all posts");
         UserApi.postIndex()
         .then(res => {
-            const cityPost = res.data.filter((post) => {
+            let cityPost = res.data.filter((post) => {
                 return post.city._id === this.props.cityId
             })
+            cityPost.reverse()
             console.log("city posts:",cityPost);
             this.setState({
                 posts: cityPost,
@@ -48,10 +49,11 @@ class PostContainer extends React.Component {
         .then(res => {
           
             if (pathName === '/profile') {
-                const userPost = res.data.filter((post) => {
+                let userPost = res.data.filter((post) => {
                     return post.user._id === this.props.id
                     
                 })
+                userPost.reverse();
                 console.log(userPost);
                 this.setState({
                     posts: userPost,
@@ -59,9 +61,10 @@ class PostContainer extends React.Component {
                 });
             } else {
                 // /cities
-                const cityPost = res.data.filter((post) => {
+                let cityPost = res.data.filter((post) => {
                     return post.city._id === this.props.cityId
                 })
+                cityPost.reverse();
                 console.log("city posts:",cityPost);
                 this.setState({
                     posts: cityPost,
@@ -95,7 +98,7 @@ class PostContainer extends React.Component {
             <PostModal show={this.state.show} cityId={this.props.cityId} user={this.props.user} onClose={this.handleClose} update={this.updatePosts}/>
             <div class="ui cards">
                 {posts && posts.map(post => {
-                    return <Post post={post} user={this.props.user} key={post._id} />
+                    return <Post post={post} user={this.props.user} update={this.updatePosts} key={post._id} />
                 })}
                 </div>
             </>
