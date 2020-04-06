@@ -1,11 +1,13 @@
 import React from 'react';
 import Post from '../components/Post/Post';
 import UserApi from '../api/UserApi';
+import PostModal from '../components/Post/PostModal'
 
 class PostContainer extends React.Component {
     state = {
         posts: this.props.posts,
-        pathName: ""
+        pathName: "",
+        isOpen: false
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -68,6 +70,13 @@ class PostContainer extends React.Component {
         //   });
     }
 
+    toggleModal = () => {
+        console.log(this.state)
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+
     render() {
         let posts = this.state.posts;
         if (this.state.pathName === '/profile') {
@@ -82,12 +91,16 @@ class PostContainer extends React.Component {
         }
         return (
             <>
-            <h2>Posts</h2>
-            <div class="ui cards">
+            <h2>Posts</h2>            
+            <button className="ui circular" onClick={this.toggleModal}>+</button>
+            <div className="modal">
+            <PostModal show={this.state.isOpen} onClose={this.toggleModal}>Here's some text</PostModal>
+            </div>
+            <div className="ui cards">
                 {posts && posts.map(post => {
                     return <Post post={post} key={post._id} />
                 })}
-                </div>
+            </div>
             </>
         )
     }
