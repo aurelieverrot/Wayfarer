@@ -44,6 +44,10 @@ const postDelete = (post) => {
   return axios.delete(endpoint+'/api/v1/posts/'+post._id)
 }
 
+const postUpdate = (_id, post) => {
+  return axios.put(endpoint+'/api/v1/posts/'+_id, post)
+}
+
 const cityIndex = () => {
     return axios.get(endpoint+'/api/v1/cities')
 }
@@ -60,5 +64,6 @@ export default {
     postIndex,
     postCreate,
     cityIndex,
-    postDelete
+    postDelete,
+    postUpdate
 }

@@ -3,9 +3,11 @@ import './Post.css';
 import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
+import UpdateModal from './UpdateModal';
 class Post extends React.Component {
   state = {
-    show: false
+    show: false,
+    inUpdate: false
 }
 
   showModal = e => {
@@ -14,14 +16,30 @@ class Post extends React.Component {
     });
 };
 
+  showUpdateModal = e => {
+    this.setState({
+      inUpdate: !this.state.inUpdate
+    });
+  };
+
   handleClose = (e) => {
     this.setState({
         show: !this.state.show
     });
-};
+  };
+
+  handleUpdateClose = (e) => {
+    this.setState({
+        inUpdate: !this.state.inUpdate
+    });
+  };  
 
     delete = () => {
       this.showModal()
+    }
+
+    update = () => {
+      this.showUpdateModal()
     }
 
     render() {
@@ -41,7 +59,7 @@ class Post extends React.Component {
         // city posts
         let extraContent = []
         if (this.props.post.user._id === this.props.user._id) {
-            extraContent.push(<><button className="ui primary button">
+            extraContent.push(<><button className="ui primary button" onClick={this.update}>
             Update
           </button>
           <button className="ui button" onClick={this.delete}>
@@ -54,6 +72,7 @@ class Post extends React.Component {
             // </div>
             <div className="card">
               <DeleteModal show={this.state.show} post={this.props.post} onClose={this.handleClose} update={this.props.update}/>
+              <UpdateModal inUpdate={this.state.inUpdate} post={this.props.post} onClose={this.handleUpdateClose} update={this.props.update}/>
               <div className="content">
               <img className="right floated mini ui image" src={this.props.post.user.photo}/>
               <div className="header">
