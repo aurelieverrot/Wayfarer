@@ -1,43 +1,5 @@
 const db = require('./models');
 
-// const users = [
-//     {
-//         firstName: "Leanne",
-//         lastName: "Graham",
-//         email: "Sincere@april.biz",
-//         password: "12345",
-//         city: "Gwenborough",
-//         photo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
-//     },
-
-//     {
-//         firstName: "Ervin",
-//         lastName: "Howell",
-//         email: "Shanna@melissa.tv",
-//         password: "12345",
-//         city: "Wisokybugh",
-//         photo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
-//     },
-
-//     {
-//         firstName: "Clementine",
-//         lastName: "Bauch",
-//         email: "Nathan@yesenia.net",
-//         password: "12345",
-//         city: "McKenziehaven",
-//         photo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
-//     },
-
-//     {
-//         firstName: "Patricia",
-//         lastName: "Lebsack",
-//         email: "Julianne.OConner@kory.org",
-//         password: "12345",
-//         city: "South Elvis",
-//         photo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
-//     },
-// ];
-
 const cities = [
   {
     name: "San Francisco",
@@ -104,7 +66,7 @@ db.City.deleteMany({}, (err, result) => {
         };
 
         console.log(`Successfully created ${newCities.length} cities.`);
-
+        process.exit();
       });
     });
   });

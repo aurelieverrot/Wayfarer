@@ -23,7 +23,7 @@ class Profile extends React.Component {
         keys.map(key => {
             let field = document.getElementById(key);
             field.classList.remove('error');
-            if (field.value == '') {
+            if (field.value === '') {
                 valid = false;
                 // add class error to fields
                 field.classList.add('error');
@@ -66,9 +66,9 @@ class Profile extends React.Component {
     }
 
     changeField = (event) => {
-        if (this.state.formStyle.display == "none") {
+        if (this.state.formStyle.display === "none") {
             this.toggleBodyForm()
-            if (this.state.messageStyle.display == "block")
+            if (this.state.messageStyle.display === "block")
                 this.toggleFormMessage();
         }
     }

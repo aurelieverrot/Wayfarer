@@ -7,7 +7,7 @@ const City = (props) => {
   // props => city { _id , name, country, photo}
   // console.log(props.city._id);
   return (
-    <div className="ui raised segment city">
+    <div className="ui raised segment city" id="city">
       <h2>{props.city.name}</h2>
       <h3>{props.city.country}</h3>
       <img src={props.city.photo} alt=""/>
