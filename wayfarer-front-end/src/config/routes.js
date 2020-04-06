@@ -15,10 +15,8 @@ const Routes = (props) => {
     }
     return true;
 }
-  console.log(props.user);
-  if (isEmpty(props.user)) {
-    // return (<div><Home/></div>)
-  }
+  let loggedIn = localStorage.getItem('loggedIn');
+  loggedIn = (loggedIn === 'true');
   return (
     <Switch>
       <Route exact path='/' component={ Home } />
@@ -26,25 +24,26 @@ const Routes = (props) => {
       <Route 
         path='/profile' 
         render={() => 
-          (!isEmpty(props.user) ? (<Profile currentUser={props.user} loggedIn={props.loggedIn}/>) : (<Redirect to="/signup"/>))}/>
+          (loggedIn ? 
+          (<Profile currentUser={props.user} loggedIn={props.loggedIn}/>) : (<Redirect to="/signup"/>))}/>
       <Route 
         path='/login' 
         render={() => 
-          (isEmpty(props.user) ? 
-            (<Login loggedIn={props.loggedIn}/>) : 
-            (<Redirect to="/profile"/>))} />
+          (loggedIn ? 
+            (<Redirect to="/profile"/>) :
+            (<Login loggedIn={props.loggedIn}/>))}/>
       <Route 
       path='/signup' 
       render={() => 
-        (isEmpty(props.user) ? 
-        (<Signup loggedIn={props.loggedIn}/>) : 
-        (<Redirect to="/profile"/>))}/>
+        (loggedIn ? 
+          (<Redirect to="/profile"/>) :
+          (<Signup loggedIn={props.loggedIn}/>))}/>
         <Route 
       path='/cities/:id' 
       render={() => 
-        (!isEmpty(props.user) ? 
-        (<CityContainer user={props.user} />) : 
-        (<Redirect to="/signup"/>))}/>
+        (loggedIn ? 
+          (<CityContainer user={props.user} />) : 
+          (<Redirect to="/signup"/>))}/>
     </Switch>
   );
 }
