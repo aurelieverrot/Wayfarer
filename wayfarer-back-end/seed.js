@@ -50,6 +50,11 @@ const cities = [
     name: "Asgard",
     photo: "https://i.pinimg.com/originals/c1/f1/dc/c1f1dc1d82118de9a4e216846e8a5d63.jpg",
   },
+
+  {
+    name: "Gravity Falls",
+    photo: "https://otvet.imgsmail.ru/download/u_bfae82697374a707c6ca97020987baac_800.jpg",
+  },
 ];
 
 // Delete All Cities
