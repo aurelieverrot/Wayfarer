@@ -66,7 +66,7 @@ db.City.deleteMany({}, (err, result) => {
         };
 
         console.log(`Successfully created ${newCities.length} cities.`);
-
+        process.exit();
       });
     });
   });
