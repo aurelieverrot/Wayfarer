@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 let AWS = require('aws-sdk');
 // Set the region 
 AWS.config.update({region: 'us-west-1'}); //US West (N. California)
-let sendEmail = require('../scr');
+let sendEmail = require('../aws_ses');
 
 const register = (req, res) => {
     // Check if Email is taken
