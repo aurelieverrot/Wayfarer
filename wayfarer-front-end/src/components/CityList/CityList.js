@@ -14,7 +14,7 @@ const CityList = (props) => {
                 </div>
             </Link>)})
     return(
-        <div className="ui middle aligned selection huge list" id="cityList">
+        <div className="ui middle aligned selection massive list" id="cityList">
             {cityList}
         </div>
     );
