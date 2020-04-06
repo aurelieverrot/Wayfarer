@@ -24,6 +24,7 @@ class PostContainer extends React.Component {
     };
 
     updatePosts = () => {
+        console.log("Indexing all posts");
         UserApi.postIndex()
         .then(res => {
             const cityPost = res.data.filter((post) => {
@@ -37,6 +38,7 @@ class PostContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        console.log(prevState, this.state);
         if (prevProps !== this.props) {
             // post index
             console.log('Index all posts')
