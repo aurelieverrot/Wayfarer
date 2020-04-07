@@ -1,7 +1,7 @@
 import React from 'react';
 import userApi from '../../api/UserApi';
 import { withRouter } from 'react-router-dom';
-
+import './Login.css';
 class Login extends React.Component {
 
     state = {
@@ -12,7 +12,6 @@ class Login extends React.Component {
     login = () => {
         userApi.login(this.state)
         .then(res => {
-            // console.log(res.data.user);
             this.props.loggedIn(res.data.user);
             // this.props.history.push('/profile');
         });
@@ -22,7 +21,6 @@ class Login extends React.Component {
         let keys = []
         // Puts state keys in keys array
         Object.keys(this.state).map(key => keys.push(key));
-        // console.log(keys);
         let valid = true
         keys.map(key => {
             let field = document.getElementById(key);
@@ -51,8 +49,10 @@ class Login extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.onSubmit} className="ui form">
-                <div className="two fields">
+            <>
+            <h2 id="formTitle">Login</h2>
+            <form onSubmit={this.onSubmit} className="ui form loginForm">
+                {/* <div className="two fields"> */}
                     <div id="email" className="field">
                         <label>Email</label>
                         <input onInput={this.updateState} name="email" type="text" placeholder="Email"/>
@@ -61,9 +61,10 @@ class Login extends React.Component {
                         <label>Password</label>
                         <input onInput={this.updateState} name="password" type="password"/>
                     </div>
-                </div>
-            <button className="ui submit button">Login</button>
+                {/* </div> */}
+            <button className="ui submit black button submitButton">Login</button>
         </form>
+        </>
         );
     }
 }
