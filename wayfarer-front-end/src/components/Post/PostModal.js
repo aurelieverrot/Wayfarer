@@ -16,7 +16,7 @@ class PostModal extends React.Component {
         if (field.value === '') {
             valid = false;
             // add class error to fields
-            field.classList.add('error');
+            field.parentElement.setAttribute('class', 'field error');
         }
     })
     return valid;
