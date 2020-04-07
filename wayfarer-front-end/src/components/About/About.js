@@ -41,7 +41,7 @@ const About = () => {
       <div className="content">
         <h2 className="header">Kristine Ilano</h2>
         <div class="meta">
-        <p>from not sure, USA</p>
+        <p>from South City, USA</p>
       </div>
       </div>
     </div>
