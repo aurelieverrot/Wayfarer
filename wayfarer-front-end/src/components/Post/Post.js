@@ -67,9 +67,6 @@ class Post extends React.Component {
           </button></>);
         }
         return(
-            // <div>
-            //     <h2>{this.props.post.title}</h2>
-            // </div>
             <div className="card">
               <DeleteModal show={this.state.show} post={this.props.post} onClose={this.handleClose} update={this.props.update}/>
               <UpdateModal inUpdate={this.state.inUpdate} post={this.props.post} onClose={this.handleUpdateClose} update={this.props.update}/>
