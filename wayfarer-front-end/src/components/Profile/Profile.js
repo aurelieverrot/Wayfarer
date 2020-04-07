@@ -118,7 +118,7 @@ class Profile extends React.Component {
         <div className="ui container segment" id="container-segment">
             <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
             {/* <UploadPhoto /> */}
-            <form className="ui form" onSubmit={this.submit}>
+            <form className="ui form profileForm" onSubmit={this.submit}>
                 <div className="fields" style={{flexDirection: "column"}}>
                     <div className="field">
                     <label>First name:</label>
