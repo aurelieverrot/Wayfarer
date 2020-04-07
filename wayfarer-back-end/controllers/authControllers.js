@@ -41,7 +41,7 @@ const register = (req, res) => {
                     res.status(201).json({status: 201, user: resUser, message: "User Created!" });
 
                     // AUTO SENDING EMAIL
-                    sendEmail(resUser.email, resUser.firstName);
+                    // sendEmail(resUser.email, resUser.firstName);
                 });
             });
         });

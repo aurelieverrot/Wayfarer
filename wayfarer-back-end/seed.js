@@ -2,26 +2,58 @@ const db = require('./models');
 
 const cities = [
   {
-    name: "San Francisco",
-    country: "United States of America",
-    photo: "https://sfchamber.com/wp-content/uploads/2017/11/merlin_136702122_448a1ddc-b5e9-4303-bc0d-701c9addf3f3-superJumbo.jpg",
+    name: "Hogsmeade",
+    photo: "https://www.zerkalo.lv/wp-content/uploads/2014/06/%D0%B3%D0%B0%D1%80%D1%80%D0%B8-%D0%BF%D0%BE%D1%82%D1%82%D0%B5%D1%80.jpg",
   },
 
   {
-    name: "New York City",
-    country: "United States of America",
-    photo: "https://blog-www.pods.com/wp-content/uploads/2019/04/MG_1_1_New_York_City-1.jpg",
+    name: "Inception City",
+    photo: "http://www.allwhitebackground.com/images/5/City-Background-Picture.jpg",
   },
 
   {
-    name: "Lyon",
-    country: "France",
-    photo: "https://www.radiologyintl.com/_webedit/cached-images/547-820-547-0-0-820-547.jpg",
+    name: "Midgar",
+    photo: "https://images.tweaktown.com/news/7/1/71096_90_final-fantasy-7-remakes-midgar-is-city-made-into-world.png",
   },
+
   {
-    name: "Sacramento",
-    country: "United States of America",
-    photo: "https://cdngeneral.rentcafe.com/dmslivecafe/3/20424/Sacramento%20River%20with%20yellow%20bridge.jpg?crop=(0,70,300,200)&cropxunits=300&cropyunits=200&quality=85&scale=both&",
+    name: "South Park",
+    photo: "https://vignette.wikia.nocookie.net/southpark/images/c/c4/South_park.png/revision/latest?cb=20180208185617",
+  },
+
+  {
+    name: "King's Landing",
+    photo: "https://i.pinimg.com/originals/a8/fe/17/a8fe17cf6a832e58a8ada75b550be629.jpg",
+  },
+
+  {
+    name: "Rivendell",
+    photo: "https://i.pinimg.com/originals/76/c6/35/76c635dce071b1d50707c8241999c5d6.png",
+  },
+
+  {
+    name: "Gotham City",
+    photo: "https://s3-us-west-1.amazonaws.com/dkn-wp/wp-content/uploads/2018/11/13194022/Gotham-740x431.jpg",
+  },
+
+  {
+    name: "Naboo",
+    photo: "https://cdn.cnn.com/cnnnext/dam/assets/171207142711-star-wars-architecture-naboo-theed-palace.jpg",
+  },
+
+  {
+    name: "Dagobah",
+    photo: "https://artlords-artwork.s3.amazonaws.com/uploads/image/696/display_StarWars_YodaYouSeekYoda_MarkMolnar.jpg",
+  },
+
+  {
+    name: "Asgard",
+    photo: "https://i.pinimg.com/originals/c1/f1/dc/c1f1dc1d82118de9a4e216846e8a5d63.jpg",
+  },
+
+  {
+    name: "Gravity Falls",
+    photo: "https://otvet.imgsmail.ru/download/u_bfae82697374a707c6ca97020987baac_800.jpg",
   },
 ];
 

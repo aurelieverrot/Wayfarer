@@ -3,6 +3,7 @@ import UserApi from '../../api/UserApi';
 // import ProfileForm from './ProfileForm';
 import './Profile.css';
 import PostContainer from '../../containers/PostContainer/PostContainer';
+import UploadPhoto from '../UploadPhoto/UploadPhoto';
 
 class Profile extends React.Component {
     state = {
@@ -116,6 +117,7 @@ class Profile extends React.Component {
         return(
         <div className="ui container segment" id="container-segment">
             <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
+            {/* <UploadPhoto /> */}
             <form className="ui form" onSubmit={this.submit}>
                 <div className="fields" style={{flexDirection: "column"}}>
                     <div className="field">
