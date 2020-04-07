@@ -10,7 +10,7 @@ class Header extends React.Component {
 
     let notLoggedLabels = ['Home', 'About', 'Log In', 'Sign Up'];
     let notLoggedLeftLinks = {
-        '/': "active item",
+        '/': "item",
         '/about': "item",
     };
     let notLoggedRightLinks = { 
@@ -20,7 +20,7 @@ class Header extends React.Component {
 
     let loggedLabels = ['Home', 'About', 'Profile', 'Cities', 'Sign Out'];
     let loggedLeftLinks = { 
-        '/': "active item",
+        '/': "item",
         '/about': "item",
         '/profile': "item",
         '/cities/san-francisco': "item" 

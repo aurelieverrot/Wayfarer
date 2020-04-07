@@ -11,6 +11,10 @@
   font-family: 'Raleway';
   src: url(./fonts/Raleway/Raleway-Bold.ttf);
 }
+@font-face {
+  font-family: 'Raleway-SemiBold';
+  src: url(./fonts/Raleway/Raleway-SemiBold.ttf);
+}
 #title {
   font-family: 'SignPainter';
   font-size: 150px;

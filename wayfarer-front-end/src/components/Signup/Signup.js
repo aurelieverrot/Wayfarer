@@ -76,7 +76,7 @@ class Signup extends React.Component {
     }
     render() {
         return(
-            <form onSubmit={this.onSubmit} className="ui form">
+            <form onSubmit={this.onSubmit} className="ui form signupForm">
                 <div className="two fields">
                     <div id="email" className="field">
                         <label>Email</label>
@@ -101,7 +101,7 @@ class Signup extends React.Component {
                     <label>City</label>
                     <input onInput={this.updateState} name="city" type="text" placeholder="City"/>
                 </div>
-                <button className="ui submit button">Sign Up</button>
+                <button className="ui submit black button submitButton">Sign Up</button>
             </form>
         );
     }

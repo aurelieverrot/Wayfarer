@@ -1,7 +1,7 @@
 import React from 'react';
 import userApi from '../../api/UserApi';
 import { withRouter } from 'react-router-dom';
-
+import './Login.css';
 class Login extends React.Component {
 
     state = {
@@ -49,7 +49,9 @@ class Login extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.onSubmit} className="ui form">
+            <>
+            <h2 id="formTitle">Login</h2>
+            <form onSubmit={this.onSubmit} className="ui form loginForm">
                 {/* <div className="two fields"> */}
                     <div id="email" className="field">
                         <label>Email</label>
@@ -60,8 +62,9 @@ class Login extends React.Component {
                         <input onInput={this.updateState} name="password" type="password"/>
                     </div>
                 {/* </div> */}
-            <button className="ui submit button">Login</button>
+            <button className="ui submit black button submitButton">Login</button>
         </form>
+        </>
         );
     }
 }
