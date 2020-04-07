@@ -38,5 +38,9 @@ router.put("/cities/:cityId/posts/:postId/comments/:commentId", ctrl.comments.up
 router.post("/cities/:cityId/posts/:postId/comments", ctrl.comments.create);
 router.delete("/cities/:cityId/posts/:postId/comments/commentId", ctrl.comments.destroy);
 
+// PHOTO UPLOAD routes----------------------------------
+router.post('/sign_s3', ctrl.aws_bucket.sign_s3);
+
+
 // ------------------------------------------------
 module.exports = router;
