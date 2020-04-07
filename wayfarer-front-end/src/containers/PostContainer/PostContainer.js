@@ -74,6 +74,14 @@ class PostContainer extends React.Component {
     render() {
         let posts = this.state.posts;
         if (this.state.pathName === '/profile') {
+            if (posts.length === 0) {
+                return (
+                    <div className="ui container segment">
+                        <h1>Posts</h1>
+                        <p>You have not posts...</p>
+                    </div>
+                )
+            }
             return(
                 <div className="ui container segment">
                     <h1>Posts</h1>
