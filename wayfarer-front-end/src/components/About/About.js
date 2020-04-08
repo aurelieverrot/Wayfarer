@@ -5,7 +5,7 @@ const About = () => {
     return(
         <>
 <div className="ui two column grid">
-  <div className="column">
+  <div className="column left">
     <div className="ui fluid card">
       <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://media-exp1.licdn.com/dms/image/C5603AQFQOSR03BZmZQ/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=l3UIMlPiQXFzJuj9nrzw8lfRkYJ5gF9K56JK2zz-DYA"/>
@@ -18,7 +18,7 @@ const About = () => {
       </div>
     </div>
   </div>
-  <div className="column">
+  <div className="column right">
     <div className="ui fluid card">
       <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://media-exp1.licdn.com/dms/image/C5603AQHvLQgHp_uQag/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=SIzbO6IJVFfGils6z-eaZBBJrq9lMs8726wUDovPsDc"/>
@@ -33,7 +33,7 @@ const About = () => {
   </div>
   </div>
 <div className="ui two column grid">
-  <div className="column">
+  <div className="column left">
     <div className="ui fluid card">
       <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://media-exp1.licdn.com/dms/image/C4E03AQErMDi68sOTvQ/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=oGh02HUv9gjJBY6vfLRAfyqrxqBDbM9wwSYQO03p3ts"/>
@@ -46,7 +46,7 @@ const About = () => {
       </div>
     </div>
   </div>
-  <div className="column">
+  <div className="column right">
     <div className="ui fluid card">
       <div className="image">
         <img style={{borderRadius: 50+'%'}} src="https://media-exp1.licdn.com/dms/image/C4D03AQEL7jRwKsvNqA/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=JGn0mgkbPH8bJr6H0Rz0IPBQNBaLcr8Xinthi2UUIwQ"/>

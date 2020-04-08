@@ -43,7 +43,7 @@ class App extends React.Component {
         <Header loggedIn={this.state.loggedIn} logout={this.logout}/>
         {/* { routes } */}
         <Routes loggedIn={this.loggedIn} user={this.state.currentUser} />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

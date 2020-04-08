@@ -15,8 +15,10 @@ class Profile extends React.Component {
         },
         messageStyle: {
             display: 'none',
-        }
+        },
+        imgSrc: ''
     }
+
     validateFields = () => {
         // Puts state keys in keys array
         let keys = ['firstName','lastName','city']
@@ -56,7 +58,7 @@ class Profile extends React.Component {
         if (prevProps.currentUser._id !== this.props.currentUser._id) {
         this.setState({
             user: this.props.currentUser
-        })
+        });
 
         UserApi.show(this.props.currentUser._id)
         .then(res => {
@@ -112,12 +114,27 @@ class Profile extends React.Component {
             })
     }
 
+    setNewProfileLink = (link) => {
+        if (this.state.user && this.state.user.photo) {
+            let updatedUser = {
+                _id: this.state.user._id,
+                photo: link
+            }
+            UserApi.update(updatedUser).
+                then((res) => console.log(res))
+        };
+    };
+
     render(){
         let date = new Date(this.state.user.createdAt);
         return(
+            <>
         <div className="ui container segment" id="container-segment">
-            <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
-            {/* <UploadPhoto /> */}
+
+            <img className="ui centered medium image" id="circular-image" src={this.state.imgSrc ? this.state.imgSrc : this.state.user.photo}/>
+          <div className="joinDate">Join Date: {date.toLocaleDateString()}</div>  
+          <UploadPhoto setNewProfileLink={ this.setNewProfileLink }/>
+
             <form className="ui form profileForm" onSubmit={this.submit}>
                 <div className="fields" style={{flexDirection: "column"}}>
                     <div className="field">
@@ -132,19 +149,21 @@ class Profile extends React.Component {
                     <label>City:</label>
                     <input name="city" id="city" type="text" onInput={this.changeField} defaultValue={this.state.user.city} placeholder={this.state.user.city}/>
                     </div>
-                    <div className="field">
+                    {/* <div className="field">
                         <label>joined:</label>
                         <input value={date.toLocaleDateString()}/>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="ui success message" style={this.state.messageStyle}>
                 <div className="header">Profile Updated!</div>
                 <p>Your profile has successfully been updated.</p>
             </div>
-                <button className="ui submit button" style={this.state.formStyle}>Update Profile</button>
+                <button className="ui submit button profile" style={this.state.formStyle}>Update Profile</button>
             </form>
-        <PostContainer id={this.state.user._id}/>
         </div>
+        <PostContainer id={this.state.user._id}/>
+
+        </>
         )
     }
 }

@@ -4,5 +4,7 @@ footer {
     width: 100%;
     color: #ffffff;
     background-color: #000000;
+    display: block;
+
 }
 
