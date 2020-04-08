@@ -47,7 +47,7 @@ class Post extends React.Component {
         let cityName = this.props.post.city.name
         cityName = cityName.replace(/\s+/g, '-').toLowerCase();
         // profile posts
-        if (pathName === '/profile') {
+        if (pathName === '/profile') {          
             return (
                 <div>
                     <Link to={{

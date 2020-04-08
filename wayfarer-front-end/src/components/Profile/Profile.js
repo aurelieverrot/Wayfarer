@@ -1,6 +1,5 @@
 import React from 'react';
 import UserApi from '../../api/UserApi';
-// import ProfileForm from './ProfileForm';
 import './Profile.css';
 import PostContainer from '../../containers/PostContainer/PostContainer';
 import UploadPhoto from '../UploadPhoto/UploadPhoto';
@@ -34,16 +33,19 @@ class Profile extends React.Component {
         })
         return valid;
     }
+
     toggleBodyForm = () => {
         this.state.formStyle.display === 'block'
         ? this.setState({ formStyle: {display: 'none' } })
         : this.setState({ formStyle: {display: 'block'} });
     }
+
     toggleFormMessage = () => {
         this.state.messageStyle.display === 'block'
         ? this.setState({ messageStyle: {display: 'none' } })
         : this.setState({ messageStyle: {display: 'block'} });
     }
+
     submit = (event) => {
         event.preventDefault();
         if (this.validateFields())
@@ -54,8 +56,22 @@ class Profile extends React.Component {
                 city: document.getElementById('city').value
             })
     }
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.currentUser._id !== this.props.currentUser._id) {
+            this.setState({
+                user: this.props.currentUser
+            });
+
+            UserApi.show(this.props.currentUser._id)
+            .then(res => {
+                this.setState({
+                    user: res.data
+                })
+            })
+        }
+    }
+    componentDidMount() {
         this.setState({
             user: this.props.currentUser
         });
@@ -66,34 +82,6 @@ class Profile extends React.Component {
                 user: res.data
             })
         })
-        }
-    }
-    componentDidMount() {
-        // if (!this.props.currentUser) {
-        //     console.log("user not found");
-        //     UserApi.verify()
-        //       .then(res => {
-        //           console.log(res.data);
-        //           UserApi.show(res.data.currentUser._id)
-        //             .then(res => {
-        //                 this.setState({
-        //                     user: res.data
-        //                 });
-        //             });
-        //       });
-        // }
-        // else {
-            this.setState({
-                user: this.props.currentUser
-            })
-
-            UserApi.show(this.props.currentUser._id)
-            .then(res => {
-                this.setState({
-                    user: res.data
-                })
-            })
-        // }
     }
 
     changeField = (event) => {
@@ -121,7 +109,7 @@ class Profile extends React.Component {
                 photo: link
             }
             UserApi.update(updatedUser).
-                then((res) => console.log(res))
+                then((res) => res)
         };
     };
 
@@ -149,10 +137,6 @@ class Profile extends React.Component {
                     <label>City:</label>
                     <input name="city" id="city" type="text" onInput={this.changeField} defaultValue={this.state.user.city} placeholder={this.state.user.city}/>
                     </div>
-                    {/* <div className="field">
-                        <label>joined:</label>
-                        <input value={date.toLocaleDateString()}/>
-                    </div> */}
                 </div>
                 <div className="ui success message" style={this.state.messageStyle}>
                 <div className="header">Profile Updated!</div>
@@ -162,7 +146,6 @@ class Profile extends React.Component {
             </form>
         </div>
         <PostContainer id={this.state.user._id}/>
-
         </>
         )
     }

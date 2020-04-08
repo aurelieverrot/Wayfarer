@@ -15,7 +15,6 @@ class Signup extends React.Component {
         let keys = []
         // Puts state keys in keys array
         Object.keys(this.state).map(key => keys.push(key));
-        // console.log(keys);
         let valid = true
         keys.map(key => {
             let field = document.getElementById(key);
@@ -38,10 +37,8 @@ class Signup extends React.Component {
     register = () => {
         userApi.signup(this.state)
         .then(res => {
-            console.log(res)
             // call function handler
             this.props.loggedIn(res.data.user);
-            // this.props.history.push('/profile');
             // Redirect to profile
         });
     }
@@ -55,7 +52,6 @@ class Signup extends React.Component {
         if (!this.validateFields())
             return
         // validate password and email
-        // console.log("Checking password");
         if (!this.passwordValid(this.state.password)) {
             let field = document.getElementById('password');
             field.classList.add('error');

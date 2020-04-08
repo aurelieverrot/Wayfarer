@@ -57,7 +57,6 @@ class PostContainer extends React.Component {
                     
                 })
                 userPost.reverse();
-                console.log(userPost);
                 this.setState({
                     posts: userPost,
                     pathName: pathName
@@ -68,7 +67,6 @@ class PostContainer extends React.Component {
                     return post.city._id === this.props.cityId
                 })
                 cityPost.reverse();
-                console.log("city posts:",cityPost);
                 this.setState({
                     posts: cityPost,
                     pathName: pathName
@@ -104,7 +102,7 @@ class PostContainer extends React.Component {
             <h2 className="cityPostHeader">Posts</h2>            
             <button id="centered-toggle-button" className="ui button" onClick={e => {this.showModal()}}>Add Post</button>
             <PostModal show={this.state.show} cityId={this.props.cityId} user={this.props.user} onClose={this.handleClose} update={this.updatePosts}/>
-            <div class="ui cards">
+            <div className="ui cards">
                 {posts && posts.map(post => {
                     return <Post post={post} user={this.props.user} update={this.updatePosts} key={post._id} />
                 })}
