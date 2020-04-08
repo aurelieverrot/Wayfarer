@@ -2,3 +2,7 @@
     max-height: 60vh;
     overflow-x: scroll;
 }
+.ui.cards .card {
+    /* background-color: blue; */
+    font-family: 'Montserrat';
+}

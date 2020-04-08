@@ -6,12 +6,12 @@ const City = (props) => {
 
   // props => city { _id , name, country, photo}
   return (
-    <div className="ui raised segment city" id="city">
+    <div className="ui raised segment city" id="cityCard">
       <div className="cityText">
-      <h2>{props.city.name}</h2>
+      <h2 id="cityName">{props.city.name}</h2>
       <h3>{props.city.country}</h3>
       </div>
-      <img className="ui bordered image" style={{display: "inline-block"}} src={props.city.photo} alt=""/>
+      <img className="ui bordered image" style={{display: "block"}} src={props.city.photo} alt=""/>
       {<PostContainer cityId={props.city._id} user={props.user}/>}
     </div>
   );
