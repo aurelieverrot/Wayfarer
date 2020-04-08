@@ -7,11 +7,6 @@ const cities = [
   },
 
   {
-    name: "Inception City",
-    photo: "http://www.allwhitebackground.com/images/5/City-Background-Picture.jpg",
-  },
-
-  {
     name: "Midgar",
     photo: "https://images.tweaktown.com/news/7/1/71096_90_final-fantasy-7-remakes-midgar-is-city-made-into-world.png",
   },
@@ -27,11 +22,6 @@ const cities = [
   },
 
   {
-    name: "Rivendell",
-    photo: "https://i.pinimg.com/originals/76/c6/35/76c635dce071b1d50707c8241999c5d6.png",
-  },
-
-  {
     name: "Gotham City",
     photo: "https://s3-us-west-1.amazonaws.com/dkn-wp/wp-content/uploads/2018/11/13194022/Gotham-740x431.jpg",
   },
@@ -42,18 +32,13 @@ const cities = [
   },
 
   {
-    name: "Dagobah",
-    photo: "https://artlords-artwork.s3.amazonaws.com/uploads/image/696/display_StarWars_YodaYouSeekYoda_MarkMolnar.jpg",
-  },
-
-  {
     name: "Asgard",
     photo: "https://i.pinimg.com/originals/c1/f1/dc/c1f1dc1d82118de9a4e216846e8a5d63.jpg",
   },
 
   {
-    name: "Gravity Falls",
-    photo: "https://otvet.imgsmail.ru/download/u_bfae82697374a707c6ca97020987baac_800.jpg",
+    name: "Binglerz City",
+    photo: "https://wayfarer.s3.amazonaws.com/BinglerzCity.jpg",
   },
 ];
 
