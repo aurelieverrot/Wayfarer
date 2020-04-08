@@ -23,7 +23,7 @@ class Header extends React.Component {
         '/': "item",
         '/about': "item",
         '/profile': "item",
-        '/cities/san-francisco': "item" 
+        '/cities/hogsmeade': "item" 
     };
     let loggedRightLinks = { 
         '/': "ui inverted button",

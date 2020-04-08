@@ -72,6 +72,8 @@ class Signup extends React.Component {
     }
     render() {
         return(
+            <>
+            <h2 id="formTitle">Sign-Up</h2>
             <form onSubmit={this.onSubmit} className="ui form signupForm">
                 <div className="two fields">
                     <div id="email" className="field">
@@ -99,6 +101,7 @@ class Signup extends React.Component {
                 </div>
                 <button className="ui submit black button submitButton">Sign Up</button>
             </form>
+            </>
         );
     }
 }
