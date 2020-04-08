@@ -8,7 +8,7 @@ const Home = (props) => {
         // if signup, remove Wayfarer
         <div className="ui text container">
             <h1 id="homeTitle" className="ui inverted header">
-                Wayfarer
+                Sleepy Town
             </h1>
             <h2 id="subheader">Travel to the Cities of Your Dreams!</h2>
         </div> 
