@@ -6,6 +6,7 @@ class PostModal extends React.Component {
   onClose = (e) => {
     this.props.onClose && this.props.onClose(e);
   };
+
   validateFields = () => {
     // Puts state keys in keys array
     let keys = ['title','body']
