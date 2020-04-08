@@ -49,10 +49,10 @@ class Post extends React.Component {
         // profile posts
         if (pathName === '/profile') {          
             return (
-                <div>
+                <div className="postLink">
                     <Link to={{
                     pathname: `/cities/${cityName}`,
-                   }}>{this.props.post.title}</Link>
+                   }}><img className="ui avatar image" src={this.props.post.city.photo} alt=""/>{this.props.post.title}</Link>
                 </div> 
             )
         }

@@ -4,6 +4,7 @@ import './About.css'
 const About = () => {
     return(
         <>
+            <h2 id="formTitle">Dev Team 🤙</h2>
 <div className="ui two column grid">
   <div className="column left">
     <div className="ui fluid card">
