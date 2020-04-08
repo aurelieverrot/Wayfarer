@@ -47,7 +47,7 @@ class PostModal extends React.Component {
     return (
       <div class="modal" id="modal">
         <div id="fields">
-          <form className="ui form modal" onSubmit={this.onSubmit}> 
+          <form className="ui form" onSubmit={this.onSubmit}> 
             <h2>Create a Post!</h2>
             <div className="field">
               <label>Title</label>
