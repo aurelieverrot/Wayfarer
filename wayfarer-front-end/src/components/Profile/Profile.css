@@ -1,11 +1,23 @@
 #container-segment {
-    border: none;
+    /* border: none; */
+    width: 500px;
+  border-radius: 13px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    opacity: 90%;
+    display: inline-block;
 }
 
 #circular-image {
     border-radius: 100%;
     width: 150px;
     display: inline-block;
+}
+.joinDate {
+    margin: 15px;
+}
+.ui.form.profileForm {
+    margin: 20px auto;
+    width: 400px;
 }
 
 .ui.form.profileForm label{
@@ -29,9 +41,17 @@
   font-family: 'Montserrat';
   font-size: 25px;
 }
-
-.ui.submit.black.button.submitButton {
+.ui.submit.button.profile {
     font-family: 'Raleway';
+    /* background-color: goldenrod; */
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100px;
+  margin: 0 auto;
+}
+
+.ui.container.segment.profilePosts {
+    display: inline-block;
+    width: 300px;
+    left: 20px;
+    vertical-align: top;
 }

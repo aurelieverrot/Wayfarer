@@ -58,7 +58,7 @@ class PostModal extends React.Component {
               <textarea id="body" name="body" rows="2" placeholder="This city is..."></textarea>
             </div>
             <button className="ui primary button" onClick={this.onSubmit}> Submit </button>
-            <button className="ui button" onClick={() => {this.onClose()}}> Close </button>
+            <button className="ui button profile" onClick={() => {this.onClose()}}> Close </button>
           </form>
         </div>
       </div>
