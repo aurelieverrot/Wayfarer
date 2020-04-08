@@ -52,7 +52,6 @@ class Login extends React.Component {
             <>
             <h2 id="formTitle">Login</h2>
             <form onSubmit={this.onSubmit} className="ui form loginForm">
-                {/* <div className="two fields"> */}
                     <div id="email" className="field">
                         <label>Email</label>
                         <input onInput={this.updateState} name="email" type="text" placeholder="Email"/>
@@ -61,7 +60,6 @@ class Login extends React.Component {
                         <label>Password</label>
                         <input onInput={this.updateState} name="password" type="password"/>
                     </div>
-                {/* </div> */}
             <button className="ui submit black button submitButton">Login</button>
         </form>
         </>

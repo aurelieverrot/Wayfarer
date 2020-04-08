@@ -35,17 +35,14 @@ class PostModal extends React.Component {
         this.props.update();
         this.onClose();
       });
-    } else {
-      // this.onClose();
     }
-    
   }
   render() {
     if(!this.props.show){
         return null;
     };
     return (
-      <div class="modal" id="modal">
+      <div className="modal" id="modal">
         <div id="fields">
           <form className="ui form" onSubmit={this.onSubmit}> 
             <h2>Create a Post!</h2>

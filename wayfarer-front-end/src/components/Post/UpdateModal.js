@@ -24,7 +24,6 @@ class UpdateModal extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     // validate forms
-    console.log("Deleting form");
     UserApi.postUpdate(this.props.post._id, {
       title: document.getElementById('title').value,
       body: document.getElementById('body').value

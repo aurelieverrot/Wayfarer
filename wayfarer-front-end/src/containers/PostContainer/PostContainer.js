@@ -57,7 +57,6 @@ class PostContainer extends React.Component {
                     
                 })
                 userPost.reverse();
-                console.log(userPost);
                 this.setState({
                     posts: userPost,
                     pathName: pathName
@@ -68,7 +67,6 @@ class PostContainer extends React.Component {
                     return post.city._id === this.props.cityId
                 })
                 cityPost.reverse();
-                console.log("city posts:",cityPost);
                 this.setState({
                     posts: cityPost,
                     pathName: pathName

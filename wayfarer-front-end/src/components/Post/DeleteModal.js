@@ -24,7 +24,6 @@ class DeleteModal extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     // validate forms
-    console.log("Deleting form");
     UserApi.postDelete(this.props.post)
     .then(res => {
       this.props.update();
