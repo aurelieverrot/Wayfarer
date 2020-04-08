@@ -59,10 +59,10 @@ class Post extends React.Component {
         // city posts
         let extraContent = []
         if (this.props.post.user._id === this.props.user._id) {
-            extraContent.push(<><button className="ui primary button" onClick={this.update}>
+            extraContent.push(<><button className="ui green button" onClick={this.update}>
             Update
           </button>
-          <button className="ui button" onClick={this.delete}>
+          <button className="ui red button" onClick={this.delete}>
             Delete
           </button></>);
         }
