@@ -15,8 +15,10 @@ class Profile extends React.Component {
         },
         messageStyle: {
             display: 'none',
-        }
+        },
+        imgSrc: ''
     }
+
     validateFields = () => {
         // Puts state keys in keys array
         let keys = ['firstName','lastName','city']
@@ -56,7 +58,7 @@ class Profile extends React.Component {
         if (prevProps.currentUser._id !== this.props.currentUser._id) {
         this.setState({
             user: this.props.currentUser
-        })
+        });
 
         UserApi.show(this.props.currentUser._id)
         .then(res => {
@@ -112,14 +114,27 @@ class Profile extends React.Component {
             })
     }
 
+    setNewProfileLink = (link) => {
+        if (this.state.user && this.state.user.photo) {
+            let updatedUser = {
+                _id: this.state.user._id,
+                photo: link
+            }
+            UserApi.update(updatedUser).
+                then((res) => console.log(res))
+        };
+    };
+
     render(){
         let date = new Date(this.state.user.createdAt);
         return(
             <>
         <div className="ui container segment" id="container-segment">
-            <img className="ui centered medium image" id="circular-image" src={this.state.user.photo}/>
-        <div className="joinDate">Join Date: {date.toLocaleDateString()}</div>
-            {/* <UploadPhoto /> */}
+
+            <img className="ui centered medium image" id="circular-image" src={this.state.imgSrc ? this.state.imgSrc : this.state.user.photo}/>
+          <div className="joinDate">Join Date: {date.toLocaleDateString()}</div>  
+          <UploadPhoto setNewProfileLink={ this.setNewProfileLink }/>
+
             <form className="ui form profileForm" onSubmit={this.submit}>
                 <div className="fields" style={{flexDirection: "column"}}>
                     <div className="field">
