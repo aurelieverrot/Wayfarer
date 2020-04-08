@@ -83,14 +83,14 @@ class PostContainer extends React.Component {
         if (this.state.pathName === '/profile') {
             if (posts.length === 0) {
                 return (
-                    <div className="ui container segment">
+                    <div className="ui container segment profilePosts">
                         <h1>Posts</h1>
                         <p>You have not posts...</p>
                     </div>
                 )
             }
             return(
-                <div className="ui container segment">
+                <div className="ui container segment profilePosts">
                     <h1>Posts</h1>
                     {posts && posts.map(post => {
                         return <Post post={post} key={post._id} />    
